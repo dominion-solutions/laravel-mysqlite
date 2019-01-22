@@ -17,5 +17,10 @@
             "name": "Mark J. Horninger",
             "email": "thisisafakeemailaddr@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mhorninger\\SQLite": "src/"
+        }
+    }
 }
