@@ -1,0 +1,18 @@
+{
+    "name": "markh/laravel-mysqlite",
+    "description": "MySQLite connector for laravel that Leverages vectorface/mysqlite to add MySQL functionality to SQLite",
+    "type": "library",
+    "require": {
+        "vectorface/mysqlite": "^0.1.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mark J. Horninger",
+            "email": "thisisafakeemailaddr@gmail.com"
+        }
+    ]
+}
