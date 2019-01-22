@@ -20,7 +20,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Mhorninger\\": "src/Mhorniger/"
+            "Mhorninger\\": "src/Mhorninger/"
         }
     }
 }
