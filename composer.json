@@ -20,7 +20,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Mhorninger\\SQLite\\": "src/"
+            "Mhorninger\\": "src/Mhorniger"
         }
     }
 }
