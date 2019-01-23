@@ -6,7 +6,7 @@ php:
 
 install:
   # Making sure we're on the latest
-  - sudo apt-get update && sudo apt-get upgrade -y
+  - sudo apt-get update #&& sudo apt-get upgrade -y
   # We need sqlite3 to test with.
   - sudo apt-get install sqlite3
 
