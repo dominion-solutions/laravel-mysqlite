@@ -5,7 +5,9 @@ php:
   - 5.6
 
 install:
-  - sudo apt-get update && sudo apt-get upgrade -y --autoremove
+  # Making sure we're on the latest
+  - sudo apt-get update && sudo apt-get upgrade -y
+  # We need sqlite3 to test with.
   - sudo apt-get install sqlite3
 
 before_script: 
