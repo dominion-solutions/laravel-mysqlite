@@ -1,0 +1,13 @@
+language: php
+
+php:
+  - 7.0
+  - 5.6
+
+install:
+  - apt-get update && apt-get upgrade -y --autoremove
+  - apt-get install sqlite3
+
+before_script: 
+  - composer self-update
+  - composer install
