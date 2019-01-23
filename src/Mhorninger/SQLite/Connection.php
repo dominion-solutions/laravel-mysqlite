@@ -1,7 +1,7 @@
 <?php
 namespace Mhorninger\SQLite;
 
-use Vectorface\MySQLite\MySQLite;
+use Mhorninger\MySQLite\MySQLite;
 
 
 class Connection extends \Illuminate\Database\Connection
@@ -18,7 +18,6 @@ class Connection extends \Illuminate\Database\Connection
     public function __construct($pdo, $database = '', $tablePrefix = '', array $config = [])
     {
         parent::__construct($pdo, $database, $tablePrefix, $config);
-        echo("In the Laravel-Mysqlite Project");
         $this->pdo = MySQLite::createFunctions($this->pdo);
     }
 }

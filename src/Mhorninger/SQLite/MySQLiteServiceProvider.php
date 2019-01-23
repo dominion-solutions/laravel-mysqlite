@@ -1,6 +1,7 @@
 <?php
 namespace Mhorninger\SQLite;
-use \Illuminate\Database\Eloquent\Model;
+
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * The Laravel ServiceProvider that initializes the MySQLite Connection.
