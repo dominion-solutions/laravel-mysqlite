@@ -1,5 +1,5 @@
 {
-    "name": "markh/laravel-mysqlite",
+    "name": "spam-n-eggs/laravel-mysqlite",
     "description": "MySQLite connector for laravel that Leverages vectorface/mysqlite to add MySQL functionality to SQLite",
     "type": "library",
     "require": {
