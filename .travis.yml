@@ -12,4 +12,8 @@ install:
 
 before_script: 
   - composer self-update
+  - composer require --dev php-coveralls/php-coveralls
   - composer install
+
+after_script:
+  - php vendor/php-coveralls/php-coveralls/bin/php-coveralls -v
