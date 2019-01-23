@@ -13,3 +13,6 @@ install:
 before_script: 
   - composer self-update
   - composer install
+
+after_script:
+  - php vendor/bin/coveralls -v

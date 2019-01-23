@@ -1,5 +1,6 @@
 # laravel-mysqlite
 [![Build Status](https://travis-ci.org/spam-n-eggs/laravel-mysqlite.svg?branch=master)](https://travis-ci.org/spam-n-eggs/laravel-mysqlite)
+[![Coverage Status](https://coveralls.io/repos/spam-n-eggs/laravel-mysqlite/badge.svg?branch=master&service=github)](https://coveralls.io/github/spam-n-eggs/laravel-mysqlite?branch=master)
 
 Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a wrapper class that adds select functions from MySQL to SQLite.  See [Vectorface/MySQLite](https://github.com/Vectorface/MySQLite) for more details around what is included by default.
 # Usage
