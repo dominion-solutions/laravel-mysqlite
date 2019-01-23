@@ -12,7 +12,7 @@ install:
 
 before_script: 
   - composer self-update
-  - composer require --dev satooshi/php-coveralls:dev-master
+  - composer require --dev php-coveralls/php-coveralls
   - composer install
 
 after_script:
