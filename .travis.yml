@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - 7.2
+  - nightly
+
+install:
+  # Making sure we're on the latest
+  - sudo apt-get update #&& sudo apt-get upgrade -y
+  # We need sqlite3 to test with.
+  - sudo apt-get install sqlite3
+
+before_script: 
+  - composer self-update
+  - composer install
