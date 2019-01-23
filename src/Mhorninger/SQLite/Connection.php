@@ -4,7 +4,7 @@ namespace Mhorninger\SQLite;
 use Mhorninger\MySQLite\MySQLite;
 
 
-class Connection extends \Illuminate\Database\Connection
+class Connection extends \Illuminate\Database\SQLiteConnection
 {
      /**
      * Create a new database connection instance.
