@@ -1,7 +1,7 @@
 <?php
 namespace Mhorninger\SQLite;
 
-use Vectorface\MySQLite\MySQLite;
+use Mhorninger\MySQLite\MySQLite;
 
 
 class Connection extends \Illuminate\Database\Connection
