@@ -3,15 +3,41 @@ namespace Mhorninger\SQLite;
 
 use PHPUnit\Framework\TestCase;
 use \PDO;
+use DateTime;
+use DateInterval;
 
 class ConnectionTest extends TestCase
 {
+    private $conn = null;
+    public function setUp()
+    {
+        //The PDO is not necessary to have right now, so we're not going to define it.
+        $pdo = new PDO("sqlite::memory:", null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        
+        //Set up the connection.
+        $this->conn = new Connection($pdo);
+    }
+
+    /**
+     * Test that any function has gotten added.
+     * Bitwise OR is the example from Vectorface, so I kept with the tradition.
+     */
     public function testInitializeConnection()
     {
-        $pdo = new PDO("sqlite::memory:", null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-        //Use the connection
-        $conn = new Connection($pdo);
-        $result = $conn->selectOne("SELECT BIT_OR(1, 2) AS result");
+        $result = $this->conn->selectOne("SELECT BIT_OR(1, 2) AS result");
         $this->assertEquals(3, $result->result);
+    }
+
+    public function testMysqlTimestampDiff()
+    {
+        $now = new DateTime();
+        $plusOneSecond = clone $now;
+        $plusOneSecond->add(new DateInterval("PT1S"));
+        $nowTimestamp = $now->getTimestamp();
+        $plusOneSecondTimestamp = $plusOneSecond->getTimeStamp();
+        var_dump($now, $plusOneSecond, $nowTimestamp, $plusOneSecondTimestamp);
+        $query = "select TIMESTAMPDIFF('Ts', $nowTimestamp, $plusOneSecondTimestamp) AS value";
+        $result = $this->conn->selectOne($query);
+        $this->assertEquals(1, $result->value);
     }
 }

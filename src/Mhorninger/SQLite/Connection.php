@@ -3,7 +3,6 @@ namespace Mhorninger\SQLite;
 
 use Mhorninger\MySQLite\MySQLite;
 
-
 class Connection extends \Illuminate\Database\SQLiteConnection
 {
      /**
