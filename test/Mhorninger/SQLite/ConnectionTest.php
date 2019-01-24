@@ -35,8 +35,7 @@ class ConnectionTest extends TestCase
         $plusOneSecond->add(new DateInterval("PT1S"));
         $nowTimestamp = $now->getTimestamp();
         $plusOneSecondTimestamp = $plusOneSecond->getTimeStamp();
-        var_dump($now, $plusOneSecond, $nowTimestamp, $plusOneSecondTimestamp);
-        $query = "select TIMESTAMPDIFF('Ts', $nowTimestamp, $plusOneSecondTimestamp) AS value";
+        $query = "select TIMESTAMPDIFF(SECOND, $nowTimestamp, $plusOneSecondTimestamp) AS value";
         $result = $this->conn->selectOne($query);
         $this->assertEquals(1, $result->value);
     }

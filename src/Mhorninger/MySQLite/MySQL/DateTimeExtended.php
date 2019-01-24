@@ -7,17 +7,6 @@ use Mhorninger\MySQLite\Constants;
 
 trait DateTimeExtended
 {
-    
-    /**
-     *
-     */
-    // phpcs:disable
-    public static function mysql_second()
-    {
-        //phpcs:enable
-        return Conastants::SECOND;
-    }
-    
     // phpcs:disable
     public static function mysql_timestampdiff($timeUnit, $startTimeStamp, $endTimeStamp)
     {
