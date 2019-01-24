@@ -28,7 +28,7 @@ class ConnectionTest extends TestCase
         $this->assertEquals(3, $result->result);
     }
 
-    public function testMysqlTimestampDiff()
+    public function testMysqlTimestampDiffSecond()
     {
         $now = new DateTime();
         $plusOneSecond = clone $now;
@@ -38,5 +38,5 @@ class ConnectionTest extends TestCase
         $query = "select TIMESTAMPDIFF(SECOND, $nowTimestamp, $plusOneSecondTimestamp) AS value";
         $result = $this->conn->selectOne($query);
         $this->assertEquals(1, $result->value);
-    }
+    } 
 }
