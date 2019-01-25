@@ -28,25 +28,4 @@ class ConnectionTest extends TestCase
         $result = $this->conn->selectOne("SELECT BIT_OR(1, 2) AS result");
         $this->assertEquals(3, $result->result);
     }
-
-    public function testMysqlTimestampDiffSecond()
-    {
-        $now = new DateTime();
-        $plusOneSecond = clone $now;
-        $plusOneSecond->add(new DateInterval("PT1S"));
-        $nowTimestamp = $now->getTimestamp();
-        $plusOneSecondTimestamp = $plusOneSecond->getTimeStamp();
-        $query = "select TIMESTAMPDIFF(SECOND, $nowTimestamp, $plusOneSecondTimestamp) AS value";
-        $result = $this->conn->selectOne($query);
-        $this->assertEquals(1, $result->value);
-    }
-
-    public function testGetUTCTimestamp()
-    {
-        $query = "SELECT UTC_TIMESTAMP as value";
-        $result = $this->conn->selectOne($query);
-        $now = new DateTime();
-        $expected = $now->getTimestamp();
-        $this->assertEqualsWithDelta($expected, $result->value, 1);
-    }
 }

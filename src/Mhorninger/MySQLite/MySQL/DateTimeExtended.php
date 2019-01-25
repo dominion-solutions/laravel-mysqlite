@@ -27,4 +27,14 @@ trait DateTimeExtended
         $now = new DateTime();
         return $now->getTimestamp();
     }
+
+    //phpcs:disable
+    public static function mysql_time_to_sec($timeExpression)
+    {
+        //phpcs:enable
+        $time = new DateTime($timeExpression);
+        //Convert to the year zero according to Unix Timestamps.
+        $time->setDate(1970, 1, 1);
+        return $time->getTimestamp();
+    }
 }
