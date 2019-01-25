@@ -14,7 +14,7 @@ Feel free to pick up any of the unassigned outstanding [issues][issue] and work 
 In order to contribute fork the repository as your own, work on it, and create a pull request to reincorporate to the master branch.
 All Pull Requests must meet these requirements before being considered for merge:
 1. Tests must pass
-  - ./vendor/phpunit/phpunit/phpunit
+    - ./vendor/phpunit/phpunit/phpunit
 1. Details of the feature / fix this PR addresses
 1. Reference issues addressed by PR. 
 1. If resolving an issue, Tag commits with issue number: `git commit -m "#N add a README file to the project."`
