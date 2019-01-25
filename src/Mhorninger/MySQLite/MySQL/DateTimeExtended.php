@@ -19,4 +19,12 @@ trait DateTimeExtended
         $difference->setTimestamp($differenceInt);
         return $difference->format("P$timeUnit");
     }
+
+    //phpcs:disable
+    public static function mysql_utc_timestamp()
+    {
+        //phpcs:enable
+        $now = new DateTime();
+        return $now->getTimestamp();
+    }
 }

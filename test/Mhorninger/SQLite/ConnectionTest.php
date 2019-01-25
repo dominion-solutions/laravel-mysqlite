@@ -39,5 +39,14 @@ class ConnectionTest extends TestCase
         $query = "select TIMESTAMPDIFF(SECOND, $nowTimestamp, $plusOneSecondTimestamp) AS value";
         $result = $this->conn->selectOne($query);
         $this->assertEquals(1, $result->value);
-    } 
+    }
+
+    public function testGetUTCTimestamp()
+    {
+        $query = "SELECT UTC_TIMESTAMP as value";
+        $result = $this->conn->selectOne($query);
+        $now = new DateTime();
+        $expected = $now->getTimestamp();
+        $this->assertEqualsWithDelta($expected, $result->value, 1);
+    }
 }
