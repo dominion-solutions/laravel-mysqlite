@@ -52,4 +52,21 @@ class InjectedMethodTest extends TestCase
         $expected = 2378;
         $this->assertEquals($expected, $result->value);
     }
+
+    public function testTimeToSecWithBadData()
+    {
+        //I have seen this happen and was absolutely perplexed as to how we got there.
+        $query = "SELECT TIME_TO_SEC(5) as value";
+        $result = $this->conn->selectOne($query);
+        $expected = 5;
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testTimeToSecWithNullData()
+    {
+        //I have seen this happen and was absolutely perplexed as to how we got there.
+        $query = "SELECT TIME_TO_SEC(NULL) as value";
+        $result = $this->conn->selectOne($query);
+        $this->assertNull($result->value);
+    }
 }
