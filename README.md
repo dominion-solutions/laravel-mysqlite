@@ -5,14 +5,7 @@
 Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a wrapper class that adds select functions from MySQL to SQLite.  See [Vectorface/MySQLite](https://github.com/Vectorface/MySQLite) for more details around what is included by default.
 # Usage
 ## Adding the Composer Resource
-1. In your composer.json add the following line to the repositories section:
-    ```json
-    {
-      "type": "vcs",
-      "url": "https://github.com/spam-n-eggs/laravel-mysqlite.git"
-    }
-    ```
-1. Execute `composer require spam-n-eggs/laravel-mysqlite`
+1. Execute `composer require spam-n-eggs/laravel-mysqlite` or alternatively `composer require --dev spam-n-eggs/laravel-mysqlite`
 
 ## Registering as a Service Provider
 In order to provide clutter it is preferable to create a separate Service Provider 
