@@ -5,7 +5,7 @@ use \ReflectionClass;
 use Mhorninger\MySQLite\MySQLite;
 use Mhorninger\MySQLite\Constants;
 
-class Connection extends \Illuminate\Database\SQLiteConnection
+class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
 {
     const ESCAPE_CHARS = ['`', '[', '"'];
      /**
@@ -20,36 +20,15 @@ class Connection extends \Illuminate\Database\SQLiteConnection
     public function __construct($pdo, $database = '', $tablePrefix = '', array $config = [])
     {
         parent::__construct($pdo, $database, $tablePrefix, $config);
+        //Make sure the PDO is actually a PDO and not a closure.
+        $this->pdo = $this->getPdo();
         $this->pdo = MySQLite::createFunctions($this->pdo);
     }
 
-    /**
-     * Run a select statement against the database.
-     *
-     * @param  string  $query
-     * @param  array  $bindings
-     * @param  bool  $useReadPdo
-     * @return array
-     */
-    public function select($query, $bindings = [], $useReadPdo = true)
+    public function run($query, $bindings, \Closure $callback)
     {
         $query = $this->scanQueryForConstants($query);
-        return $this->run($query, $bindings, function ($query, $bindings) use ($useReadPdo) {
-            if ($this->pretending()) {
-                return [];
-            }
-            // For select statements, we'll simply execute the query and return an array
-            // of the database result set. Each element in the array will be a single
-            // row from the database table, and will either be an array or objects.
-            $statement = $this->prepared($this->getPdoForSelect($useReadPdo)
-                              ->prepare($query));
-            
-            $this->bindValues($statement, $this->prepareBindings($bindings));
-
-            $statement->execute();
-
-            return $statement->fetchAll();
-        });
+        return parent::run($query, $bindings, $callback);
     }
 
     private function scanQueryForConstants($query)

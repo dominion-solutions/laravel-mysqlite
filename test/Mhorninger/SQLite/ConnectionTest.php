@@ -2,6 +2,7 @@
 namespace Mhorninger\SQLite;
 
 use PHPUnit\Framework\TestCase;
+use \Mhorninger\SQLite\MySQLiteConnection as Connection;
 use \PDO;
 use DateTime;
 use DateInterval;
