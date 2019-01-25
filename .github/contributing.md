@@ -19,7 +19,9 @@ All Pull Requests must meet these requirements before being considered for merge
 1. Reference issues addressed by PR. 
 1. If resolving an issue, Tag commits with issue number: `git commit -m "#N add a README file to the project."`
 1. Include steps to test changes
+1. Verify test coverage does not drop below the threshold on master as reported by [coveralls][coveralls]
 
 [github]: https://github.com/spam-n-eggs/laravel-mysqlite
 [issue]: https://github.com/spam-n-eggs/laravel-mysqlite/issues
 [contributors]: https://github.com/spam-n-eggs/laravel-mysqlite/graphs/contributors
+[coveralls]: https://coveralls.io/github/spam-n-eggs/laravel-mysqlite?branch=master
