@@ -12,7 +12,8 @@
         "squizlabs/php_codesniffer": "^3.4",
         "phpmd/phpmd": "^2.6",
         "codedungeon/phpunit-result-printer": "dev-master",
-        "phpunit/php-code-coverage": "^6.1@dev"
+        "phpunit/php-code-coverage": "^6.1@dev",
+        "php-coveralls/php-coveralls": "2.1.x-dev"
     },
     "license": "MIT",
     "authors": [
