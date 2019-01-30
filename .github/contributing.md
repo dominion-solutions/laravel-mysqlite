@@ -1,5 +1,5 @@
 # Contributors
-Help is always welcome, and subject to review.
+Help is always welcome!
 
 # Found a Bug?
 If you find a bug in the source code, you can help us by submitting an [issue][issue]. Even better, you can submit a Pull Request  with a fix.
