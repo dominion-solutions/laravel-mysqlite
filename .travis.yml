@@ -10,8 +10,7 @@ install:
   # We need sqlite3 to test with.
   - sudo apt-get install sqlite3
 
-before_script: 
-  - composer self-update
+before_script:
   - composer require --dev php-coveralls/php-coveralls
   - composer install
 
