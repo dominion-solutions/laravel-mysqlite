@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/spam-n-eggs/laravel-mysqlite.svg?branch=master)](https://travis-ci.org/spam-n-eggs/laravel-mysqlite)
 [![Coverage Status](https://coveralls.io/repos/github/spam-n-eggs/laravel-mysqlite/badge.svg?branch=master)](https://coveralls.io/github/spam-n-eggs/laravel-mysqlite?branch=master)
 
-Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a wrapper class that adds select functions from MySQL to SQLite.  See [Vectorface/MySQLite](https://github.com/Vectorface/MySQLite) for more details around what is included by default.
+Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a database connection that adds select functions from MySQL to SQLite.
 
 # Usage
 ## Adding the Composer Resource
@@ -62,6 +62,17 @@ Want to file a bug, contribute some code, improve documentation, or request a fe
 
 # Questions
 Have a question?  [Log an issue][issue] with the **Question** tag.  We'll get back to you in a timely fashion.
+
+# Credits
+This library uses other Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source community.
+
+Project: Database https://github.com/illuminate/database  
+Copyright (c) Taylor Otwell  
+License (MIT) https://github.com/laravel/framework/blob/5.7/LICENSE.md
+
+Project: MySQLite https://github.com/Vectorface/MySQLite  
+Copyright (c) 2014 Vectorface, Inc.  
+License: (MIT) https://github.com/Vectorface/MySQLite/blob/master/LICENSE
 
 [utc_timestamp]: https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_utc-timestamp
 [contributing]: ./.github/contributing.md
