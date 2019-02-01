@@ -16,7 +16,8 @@ before_script:
   - composer require --dev php-coveralls/php-coveralls
   - composer install
 
-before_deploy:
+#before_deploy:
+deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "Travis-CI Builder"
   - git config --local user.email "builds@travis-ci.org"
