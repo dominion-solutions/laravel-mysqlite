@@ -11,16 +11,16 @@ trait DateTimeExtended
     public static function mysql_timestampdiff($timeUnit, $startTimeStamp, $endTimeStamp)
     {
         //phpcs:enable
-        if($startTimeStamp != null && is_numeric($startTimeStamp) && $endTimeStamp != null && is_numeric($endTimeStamp)) {
+        if ($startTimeStamp != null && is_numeric($startTimeStamp) && $endTimeStamp != null && is_numeric($endTimeStamp)) {
             $differenceInt = $endTimeStamp - $startTimeStamp;
             if ($timeUnit == Constants::SECOND || $timeUnit = Constants::FRAC_SECOND) {
                 return $differenceInt;
             }
             $difference = new DateTime();
             $difference->setTimestamp($differenceInt);
+
             return $difference->format("P$timeUnit");
         }
-        return null;
     }
 
     //phpcs:disable
@@ -28,6 +28,7 @@ trait DateTimeExtended
     {
         //phpcs:enable
         $now = new DateTime();
+
         return $now->getTimestamp();
     }
 
@@ -42,8 +43,8 @@ trait DateTimeExtended
             $time = new DateTime($timeExpression);
             //Convert to the year zero according to Unix Timestamps.
             $time->setDate(1970, 1, 1);
+
             return $time->getTimestamp();
         }
-        return null;
     }
 }

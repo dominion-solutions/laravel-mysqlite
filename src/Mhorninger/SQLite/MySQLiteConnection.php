@@ -1,7 +1,8 @@
 <?php
+
 namespace Mhorninger\SQLite;
 
-use \ReflectionClass;
+use ReflectionClass;
 use Mhorninger\MySQLite\MySQLite;
 use Mhorninger\MySQLite\Constants;
 use Mhorninger\MySQLite\MethodSubstitutionConstants;
@@ -9,7 +10,8 @@ use Mhorninger\MySQLite\MethodSubstitutionConstants;
 class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
 {
     const ESCAPE_CHARS = ['`', '[', '"'];
-     /**
+
+    /**
      * Create a new database connection instance.
      *
      * @param  \PDO|\Closure     $pdo
@@ -29,6 +31,7 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
     public function run($query, $bindings, \Closure $callback)
     {
         $query = $this->scanQueryForConstants($query);
+
         return parent::run($query, $bindings, $callback);
     }
 
@@ -38,7 +41,7 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
         $constants = $reflection->getConstants();
         $placeholders = array_keys($constants);
         foreach ($placeholders as $placeholder) {
-            $query = str_replace($placeholder, "'" . $constants[$placeholder] . "'", $query);
+            $query = str_replace($placeholder, "'".$constants[$placeholder]."'", $query);
         }
         $reflection = new ReflectionClass(MethodSubstitutionConstants::class);
         $methodConstants = $reflection->getConstants();
