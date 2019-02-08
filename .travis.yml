@@ -5,7 +5,7 @@ php:
   - nightly
 matrix:
 #Temporarily allow failures on PHP nightly while coveralls.io catches up.
-  allow_faailures:
+  allow_failures:
     - php: nightly
 
 install:
