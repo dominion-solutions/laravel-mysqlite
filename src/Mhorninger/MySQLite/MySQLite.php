@@ -1,17 +1,11 @@
 <?php
+
 namespace Mhorninger\MySQLite;
 
-use \PDO;
-use \Mhorninger\MySQLite\MySQL\DateTimeExtended;
-use \Vectorface\MySQLite\MySQL\Aggregate;
-use \Vectorface\MySQLite\MySQL\Comparison;
-use \Vectorface\MySQLite\MySQL\DateTime;
-use \Vectorface\MySQLite\MySQL\Flow;
-use \Vectorface\MySQLite\MySQL\Numeric;
-use \Vectorface\MySQLite\MySQL\StringFn;
-
+use PDO;
 use ReflectionClass;
 use ReflectionMethod;
+use Mhorninger\MySQLite\MySQL\DateTimeExtended;
 
 /**
  * MySQLite is the extension Vectorface's MySQLite extension.
@@ -42,7 +36,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
 
         return $data;
     }
-    
+
     /**
      * Add MySQLite compatibility functions to a PDO object.
      *
@@ -64,7 +58,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
     }
 
     /**
-     * Register a method as an SQLite funtion
+     * Register a method as an SQLite funtion.
      *
      * @param PDO &$pdo       A PDO instance to which the MySQLite compatibility functions should be added.
      * @param string $method     The internal method name.
@@ -77,13 +71,14 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
         $function = substr($method, 6); /* Strip 'mysql_' prefix to get the function name. */
 
         /* Skip functions not in the list. */
-        if (!empty($fnList) && !in_array($function, $fnList)) {
+        if (! empty($fnList) && ! in_array($function, $fnList)) {
             return false;
         }
 
         if ($paramCount) {
             return $pdo->sqliteCreateFunction($function, [__CLASS__, $method], $paramCount);
         }
+
         return $pdo->sqliteCreateFunction($function, [__CLASS__, $method]);
     }
 }

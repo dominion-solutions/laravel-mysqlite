@@ -1,8 +1,7 @@
 <?php
+
 namespace Mhorninger\SQLite;
 
-use Illuminate\Database\Connectors\SQLiteConnector;
-use \PDO;
 use Illuminate\Database\Connection;
 
 /**
@@ -18,6 +17,7 @@ class MySQLiteServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
     }
+
     /**
      * Register the service provider.
      *

@@ -1,4 +1,5 @@
 <?php
+
 namespace Mhorninger\MySQLite;
 
 use PDO;
@@ -10,11 +11,12 @@ use Mhorninger\SQLite\MySQLiteConnection;
 class InjectedMethodTest extends TestCase
 {
     private $conn = null;
+
     public function setUp()
     {
         //The PDO is not necessary to have right now, so we're not going to define it.
-        $pdo = new PDO("sqlite::memory:", null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-        
+        $pdo = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
         //Set up the connection.
         $this->conn = new MySQLiteConnection($pdo);
     }
@@ -23,7 +25,7 @@ class InjectedMethodTest extends TestCase
     {
         $now = new DateTime();
         $plusOneSecond = clone $now;
-        $plusOneSecond->add(new DateInterval("PT1S"));
+        $plusOneSecond->add(new DateInterval('PT1S'));
         $nowTimestamp = $now->getTimestamp();
         $plusOneSecondTimestamp = $plusOneSecond->getTimeStamp();
         $query = "select TIMESTAMPDIFF(SECOND, $nowTimestamp, $plusOneSecondTimestamp) AS value";
@@ -33,7 +35,7 @@ class InjectedMethodTest extends TestCase
 
     public function testGetUTCTimestamp()
     {
-        $query = "SELECT UTC_TIMESTAMP as value";
+        $query = 'SELECT UTC_TIMESTAMP as value';
         $result = $this->conn->selectOne($query);
         $now = new DateTime();
         $expected = $now->getTimestamp();
@@ -56,7 +58,7 @@ class InjectedMethodTest extends TestCase
     public function testTimeToSecWithBadData()
     {
         //I have seen this happen and was absolutely perplexed as to how we got there.
-        $query = "SELECT TIME_TO_SEC(5) as value";
+        $query = 'SELECT TIME_TO_SEC(5) as value';
         $result = $this->conn->selectOne($query);
         $expected = 5;
         $this->assertEquals($expected, $result->value);
@@ -65,7 +67,7 @@ class InjectedMethodTest extends TestCase
     public function testTimeToSecWithNullData()
     {
         //I have seen this happen and was absolutely perplexed as to how we got there.
-        $query = "SELECT TIME_TO_SEC(NULL) as value";
+        $query = 'SELECT TIME_TO_SEC(NULL) as value';
         $result = $this->conn->selectOne($query);
         $this->assertNull($result->value);
     }
