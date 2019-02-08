@@ -1,6 +1,7 @@
 # laravel-mysqlite
 [![Build Status](https://travis-ci.org/spam-n-eggs/laravel-mysqlite.svg?branch=master)](https://travis-ci.org/spam-n-eggs/laravel-mysqlite)
 [![Coverage Status](https://coveralls.io/repos/github/spam-n-eggs/laravel-mysqlite/badge.svg?branch=master)](https://coveralls.io/github/spam-n-eggs/laravel-mysqlite?branch=master)
+[![StyleCI](https://github.styleci.io/repos/169732818/shield?branch=master)](https://github.styleci.io/repos/169732818)
 [![Latest Stable Version](https://poser.pugx.org/spam-n-eggs/laravel-mysqlite/v/stable)](https://packagist.org/packages/spam-n-eggs/laravel-mysqlite)
 [![Total Downloads](https://poser.pugx.org/spam-n-eggs/laravel-mysqlite/downloads)](https://packagist.org/packages/spam-n-eggs/laravel-mysqlite)
 [![License](https://poser.pugx.org/spam-n-eggs/laravel-mysqlite/license)](https://packagist.org/packages/spam-n-eggs/laravel-mysqlite)
@@ -12,7 +13,7 @@ Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a datab
 1. Execute `composer require spam-n-eggs/laravel-mysqlite` or alternatively `composer require --dev spam-n-eggs/laravel-mysqlite`
 
 ## Registering as a Service Provider
-In order to provide clutter it is preferable to create a separate Service Provider 
+In order to provide clutter it is preferable to create a separate Service Provider
 1. If there is a need to conditionally register the Service (i.e. you only use it in testing) create a new class in `app/Providers` that extends `Mhorninger\SQLite\MySQLiteServiceProvider`
 
     ```php
@@ -69,12 +70,12 @@ Have a question?  [Log an issue][issue] with the **Question** tag.  We'll get ba
 # Credits
 This library uses other Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source community.
 
-Project: Database https://github.com/illuminate/database  
-Copyright (c) Taylor Otwell  
+Project: Database https://github.com/illuminate/database
+Copyright (c) Taylor Otwell
 License (MIT) https://github.com/laravel/framework/blob/5.7/LICENSE.md
 
-Project: MySQLite https://github.com/Vectorface/MySQLite  
-Copyright (c) 2014 Vectorface, Inc.  
+Project: MySQLite https://github.com/Vectorface/MySQLite
+Copyright (c) 2014 Vectorface, Inc.
 License: (MIT) https://github.com/Vectorface/MySQLite/blob/master/LICENSE
 
 [utc_timestamp]: https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_utc-timestamp
