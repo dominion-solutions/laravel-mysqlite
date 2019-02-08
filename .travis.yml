@@ -3,6 +3,10 @@ language: php
 php:
   - 7.2
   - nightly
+matrix:
+#Temporarily allow failures on PHP nightly while coveralls.io catches up.
+  allow_faailures:
+    - php: nightly
 
 install:
   # Making sure we're on the latest
