@@ -62,7 +62,7 @@ In order to provide clutter it is preferable to create a separate Service Provid
 - [least(mixed ...)](https://github.com/Vectorface/MySQLite/blob/master/src/Vectorface/MySQLite/MySQL/Comparison.php)
 
 # Contributing
-Want to file a bug, contribute some code, improve documentation, or request a feature? Awesome Sauce! Read up on our guidelines for [contributing][contributing]
+Want to file a bug, contribute some code, improve documentation, or request a feature? Awesome Sauce! Read up on our guidelines for [contributing][contributing].  All contributions must follow our [Code of Conduct][codeofconduct].
 
 # Questions
 Have a question?  [Log an issue][issue] with the **Question** tag.  We'll get back to you in a timely fashion.
@@ -81,3 +81,4 @@ License: (MIT) https://github.com/Vectorface/MySQLite/blob/master/LICENSE
 [utc_timestamp]: https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_utc-timestamp
 [contributing]: ./.github/contributing.md
 [issue]: https://github.com/spam-n-eggs/laravel-mysqlite/issues
+[codeofconduct]:./.github/CODE_OF_CONDUCT.md
