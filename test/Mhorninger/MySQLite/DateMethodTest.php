@@ -1,24 +1,11 @@
 <?php
-
 namespace Mhorninger\MySQLite;
 
-use PDO;
-use DateTime;
-use DateInterval;
-use PHPUnit\Framework\TestCase;
-use Mhorninger\SQLite\MySQLiteConnection;
-
-class InjectedMethodTest extends TestCase
+class DateMethodTest extends InjectedMethodTestBase
 {
-    private $conn = null;
-
     public function setUp()
     {
-        //The PDO is not necessary to have right now, so we're not going to define it.
-        $pdo = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
-        //Set up the connection.
-        $this->conn = new MySQLiteConnection($pdo);
+        parent::setUp();
     }
 
     public function testMysqlTimestampDiffSecond()

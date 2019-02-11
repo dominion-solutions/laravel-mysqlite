@@ -19,7 +19,12 @@
     "authors": [
         {
             "name": "Mark J. Horninger",
-            "email": "thisisafakeemailaddr@gmail.com"
+            "email": "thisisafakeemailaddr@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/spam-n-eggs/laravel-mysqlite/graphs/contributors"
         }
     ],
     "autoload": {
