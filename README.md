@@ -68,6 +68,8 @@ In order to provide clutter it is preferable to create a separate Service Provid
 - [concat_ws(separator, string ...)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_concat-ws)
 - [format(number, decimals, locale = 'en_US')](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_format)
 - [lpad(string, length, pad)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_lpad)
+### Miscellaneous
+- [inet_ntoa(ipAddress)](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html#function_inet-ntoa)
 ### Vectorface-Specific
 #### Comparison
 - [least(mixed ...)](https://github.com/Vectorface/MySQLite/blob/master/src/Vectorface/MySQLite/MySQL/Comparison.php)
