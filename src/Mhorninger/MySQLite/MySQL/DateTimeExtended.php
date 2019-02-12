@@ -3,10 +3,29 @@
 namespace Mhorninger\MySQLite\MySQL;
 
 use DateTime;
+use DateTimeZone;
 use Mhorninger\MySQLite\Constants;
 
 trait DateTimeExtended
 {
+    //phpcs:disable
+    public static function mysql_convert_tz($date, $fromTimezone, $toTimezone)
+    {
+        //phpcs:enable
+        if ($date && $fromTimezone && $toTimezone) {
+            $toTimezone = new DateTimeZone($toTimezone);
+            if ($fromTimezone == 'SYSTEM') {
+                $converted = new DateTime($date);
+            } else {
+                $fromTimezone = new DateTimeZone($fromTimezone);
+                $converted = new DateTime($date, $fromTimezone);
+            }
+            $converted->setTimezone($toTimezone);
+            return $converted->format('Y-m-d H:i:s');
+        }
+        return null;
+    }
+
     //phpcs:disable
     public static function mysql_date_format($date, $format)
     {

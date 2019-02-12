@@ -43,6 +43,7 @@ In order to provide clutter it is preferable to create a separate Service Provid
 ### Aggregate
 - [bit_or (int ...)](https://dev.mysql.com/doc/refman/8.0/en/group-by-functions.html#function_bit-or)
 ### Date and Time
+- [convert_tz(date, fromTimezone, toTimezone)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_convert-tz)
 - [date_format(date, format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format)
     - Un-ported Format Strings: `%U`, `%V`, `%X`
     - Other Limitations: `%j` is off by 1 day.

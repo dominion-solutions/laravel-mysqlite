@@ -11,6 +11,38 @@ class DateMethodTest extends \Mhorninger\TestCase
         parent::setUp();
     }
 
+    #region CONVERT_TZ
+    public function testConvertTzNamed()
+    {
+        $query = "SELECT CONVERT_TZ('2004-01-01 12:00:00','GMT','MET') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = '2004-01-01 13:00:00';
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testConvertTzNumeric()
+    {
+        $query = "SELECT CONVERT_TZ('2004-01-01 12:00:00','+00:00','+10:00') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = '2004-01-01 22:00:00';
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testConvertTzFromSystem()
+    {
+        $testTime = '2004-01-01 12:00:00';
+        $query = "SELECT CONVERT_TZ('$testTime','SYSTEM','+10:00') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = new DateTime($testTime, new \DateTimeZone('+10:00'));
+        $expected = '2004-01-01 22:00:00';
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testConvertTzNull()
+    {
+        $query = "SELECT CONVERT_TZ(NULL,'+00:00','+10:00') as value;";
+        $result = $this->conn->selectOne($query);
+        $this->assertNull($result->value);
+    }
+    #endregion
+
     #region DATE_FORMAT
     public function testDateFormatWMY()
     {
@@ -67,7 +99,15 @@ class DateMethodTest extends \Mhorninger\TestCase
         $expected = 5;
         $this->assertEquals($expected, $result->value);
     }
+
+    public function testMinuteNull()
+    {
+        $query = "SELECT MINUTE(NULL) as value;";
+        $result = $this->conn->selectOne($query);
+        $this->assertNull($result->value);
+    }
     #endregion
+    
     #region TimeStamp Tests
     public function testMysqlTimestampDiffSecond()
     {
