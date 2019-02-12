@@ -43,23 +43,24 @@ In order to provide clutter it is preferable to create a separate Service Provid
 ### Aggregate
 - [bit_or (int ...)](https://dev.mysql.com/doc/refman/8.0/en/group-by-functions.html#function_bit-or)
 ### Date and Time
-- [date_format()](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format)
+- [date_format(date, format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format)
     - Un-ported Format Strings: `%U`, `%V`, `%X`
     - Other Limitations: `%j` is off by 1 day.
 - [now()](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_now)
-- [timestampdiff($timeUnit, $startTimeStamp, $endTimeStamp)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timestampdiff)
-- [time_to_sec($timeExpression)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_time-to-sec)
-- [to_days($date)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_to-days)
-- [unix_timestamp($date = null)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_unix-timestamp)
+- [timestampdiff(timeUnit, startTimeStamp, endTimeStamp)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timestampdiff)
+- [time_to_sec(timeExpression)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_time-to-sec)
+- [to_days(date)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_to-days)
+- [unix_timestamp(date = null)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_unix-timestamp)
 - [utc_timestamp()][utc_timestamp]
 ### Flow
-- [if($condition, $onTrue, $onFalse)](https://dev.mysql.com/doc/refman/8.0/en/control-flow-functions.html#function_if)
+- [if(condition, onTrue, onFalse)](https://dev.mysql.com/doc/refman/8.0/en/control-flow-functions.html#function_if)
 ### Numeric
 - [rand()](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_rand)
-- [sqrt($value)](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_sqrt)
+- [sqrt(value)](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_sqrt)
 ### String
 - [concat(string ...)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_concat)
 - [concat_ws(separator, string ...)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_concat-ws)
+- [lpad(string, length, pad)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_lpad)
 ### Vectorface-Specific
 #### Comparison
 - [least(mixed ...)](https://github.com/Vectorface/MySQLite/blob/master/src/Vectorface/MySQLite/MySQL/Comparison.php)

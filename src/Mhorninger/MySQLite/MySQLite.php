@@ -6,6 +6,7 @@ use PDO;
 use ReflectionClass;
 use ReflectionMethod;
 use Mhorninger\MySQLite\MySQL\DateTimeExtended;
+use Mhorninger\MySQLite\MySQL\StringExtended;
 
 /**
  * MySQLite is the extension Vectorface's MySQLite extension.
@@ -14,6 +15,7 @@ use Mhorninger\MySQLite\MySQL\DateTimeExtended;
 class MySQLite extends \Vectorface\MySQLite\MySQLite
 {
     use DateTimeExtended;
+    use StringExtended;
 
     /**
      * Get information about functions that are meant to be exposed by this class.
