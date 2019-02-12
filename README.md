@@ -51,6 +51,7 @@ In order to provide clutter it is preferable to create a separate Service Provid
 - [now()](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_now)
 - [timestampdiff(timeUnit, startTimeStamp, endTimeStamp)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timestampdiff)
 - [time_to_sec(timeExpression)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_time-to-sec)
+- [timediff(timeExpression1, timeExpression2)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timediff)
 - [to_days(date)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_to-days)
 - [unix_timestamp(date = null)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_unix-timestamp)
 - [utc_timestamp()][utc_timestamp]

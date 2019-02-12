@@ -83,6 +83,24 @@ trait DateTimeExtended
         }
         return null;
     }
+
+    // phpcs:disable
+    public static function mysql_timediff($timeExpression1, $timeExpression2)
+    {
+        // phpcs:enable
+        if ($timeExpression1 && $timeExpression2) {
+            $dateTime1 = new DateTime($timeExpression1);
+            $dateTime2 = new DateTime($timeExpression2);
+            $dateTimeInterval = $dateTime2->diff($dateTime1);
+            $days = $dateTimeInterval->d;
+            $hours = ($days * 24) + $dateTimeInterval->h;
+            $hourFormatter = new \NumberFormatter(\Locale::DEFAULT_LOCALE, \NumberFormatter::PATTERN_DECIMAL, "00");
+            $hours = $hourFormatter->format($hours, \NumberFormatter::PATTERN_DECIMAL);
+            return $dateTimeInterval->format("%r$hours:%I:%S.%F");
+        }
+        return null;
+    }
+
     // phpcs:disable
     public static function mysql_timestampdiff($timeUnit, $startTimeStamp, $endTimeStamp)
     {

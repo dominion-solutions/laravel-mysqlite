@@ -162,4 +162,30 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertNull($result->value);
     }
     #endregion
+
+    #region TIMEDIFF
+    public function testTimeDiffNegative()
+    {
+        $query = "SELECT TIMEDIFF('2000-01-01 00:00:00', '2000-01-01 00:00:00.000001') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = '-00:00:00.000001';
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testTimeDiff()
+    {
+        $query = "SELECT TIMEDIFF('2008-12-31 23:59:59.000001','2008-12-30 01:01:01.000002') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = '46:58:57.999999';
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testTimeDiffNull()
+    {
+        $query = "SELECT TIMEDIFF(NULL, '2000:01:01 00:00:00.000001') as value;";
+        $result = $this->conn->selectOne($query);
+        $this->assertNull($result->value);
+    }
+
+    #endregion
 }
