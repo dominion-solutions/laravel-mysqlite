@@ -141,4 +141,13 @@ trait DateTimeExtended
 
         return $now->getTimestamp();
     }
+
+    // phpcs:disable
+    public static function mysql_weekday($date)
+    {
+        if ($date) {
+            $dateTime = new DateTime($date);
+            return $dateTime->format('N') - 1;
+        }
+    }
 }

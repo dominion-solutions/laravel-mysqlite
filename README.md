@@ -55,6 +55,7 @@ In order to provide clutter it is preferable to create a separate Service Provid
 - [to_days(date)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_to-days)
 - [unix_timestamp(date = null)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_unix-timestamp)
 - [utc_timestamp()][utc_timestamp]
+- [weekday(date)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_weekday)
 ### Flow
 - [if(condition, onTrue, onFalse)](https://dev.mysql.com/doc/refman/8.0/en/control-flow-functions.html#function_if)
 ### Numeric

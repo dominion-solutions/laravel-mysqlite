@@ -198,4 +198,29 @@ class DateMethodTest extends \Mhorninger\TestCase
     }
 
     //endregion
+
+    //region WEEKDAY
+    public function testWeekdayWithTime()
+    {
+        $query = "SELECT WEEKDAY('2008-02-03 22:23:00') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 6;
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testWeekday()
+    {
+        $query = "SELECT WEEKDAY('2007-11-06') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testWeekdayNull()
+    {
+        $query = "SELECT WEEKDAY(NULL) as value;";
+        $result = $this->conn->selectOne($query);
+        $this->assertNull($result->value);
+    }
+    //endregion
 }
