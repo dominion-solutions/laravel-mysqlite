@@ -3,10 +3,39 @@
 namespace Mhorninger\MySQLite\MySQL;
 
 use DateTime;
+use Locale;
+use NumberFormatter;
 use Mhorninger\MySQLite\Constants;
 
 trait StringExtended
 {
+
+    /**
+     * Format a number according to the nubmer of decimals provided and culture.
+     * @param mixed... number, decimals, culture.
+     */
+    // phpcs:disable
+    public static function mysql_format()
+    {
+        //phpcs:enable
+        $args = func_get_args();
+        $length = count($args);
+        if ($args && 0 < $length && ($number = $args[0]) != null) {
+            $decimals = 1 < $length ? $args[1] : 0;
+            $culture = 2 < $length ? $args[2] : 'en_US';
+            $pattern = '#,##0';
+            if ($decimals > 0) {
+                $pattern = $pattern . ".";
+                $base = strlen($pattern);
+                $decimals = $base + $decimals;
+                $pattern = str_pad($pattern, $decimals, '0', STR_PAD_RIGHT);
+            }
+            $formatter = new NumberFormatter($culture, NumberFormatter::PATTERN_DECIMAL, $pattern);
+            return $formatter->format($number);
+        }
+        return null;
+    }
+
     // phpcs:disable
     public static function mysql_lpad($string, $length, $pad)
     {

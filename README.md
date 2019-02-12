@@ -57,12 +57,13 @@ In order to provide clutter it is preferable to create a separate Service Provid
 - [if(condition, onTrue, onFalse)](https://dev.mysql.com/doc/refman/8.0/en/control-flow-functions.html#function_if)
 ### Numeric
 - [mod(number, divisor)](https://dev.mysql.com/doc/refman/5.7/en/mathematical-functions.html#function_mod)
-  - Limitations - Support for Standard `MOD(N,M)` notation only.  `N MOD M` is not supported.
+  - Limitations - Support for Standard `MOD(N,M)` and `N % M` notation only.  `N MOD M` is not supported.
 - [rand()](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_rand)
 - [sqrt(value)](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_sqrt)
 ### String
 - [concat(string ...)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_concat)
 - [concat_ws(separator, string ...)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_concat-ws)
+- [format(number, decimals, locale = 'en_US')](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_format)
 - [lpad(string, length, pad)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_lpad)
 ### Vectorface-Specific
 #### Comparison
