@@ -21,9 +21,9 @@ trait DateTimeExtended
                 $converted = new DateTime($date, $fromTimezone);
             }
             $converted->setTimezone($toTimezone);
+
             return $converted->format('Y-m-d H:i:s');
         }
-        return null;
     }
 
     //phpcs:disable
@@ -68,9 +68,9 @@ trait DateTimeExtended
             foreach ($keys as $key) {
                 $format = str_replace($key, $dictionary[$key], $format);
             }
+
             return $time->format($format);
         }
-        return null;
     }
 
     // phpcs:disable
@@ -79,9 +79,9 @@ trait DateTimeExtended
         // phpcs:enable
         if ($time) {
             $asTime = new DateTime($time);
+
             return date_format($asTime, 'i');
         }
-        return null;
     }
 
     // phpcs:disable
@@ -94,11 +94,11 @@ trait DateTimeExtended
             $dateTimeInterval = $dateTime2->diff($dateTime1);
             $days = $dateTimeInterval->d;
             $hours = ($days * 24) + $dateTimeInterval->h;
-            $hourFormatter = new \NumberFormatter(\Locale::DEFAULT_LOCALE, \NumberFormatter::PATTERN_DECIMAL, "00");
+            $hourFormatter = new \NumberFormatter(\Locale::DEFAULT_LOCALE, \NumberFormatter::PATTERN_DECIMAL, '00');
             $hours = $hourFormatter->format($hours, \NumberFormatter::PATTERN_DECIMAL);
+
             return $dateTimeInterval->format("%r$hours:%I:%S.%F");
         }
-        return null;
     }
 
     // phpcs:disable

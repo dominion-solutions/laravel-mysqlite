@@ -1,4 +1,5 @@
 <?php
+
 namespace Mhorninger;
 
 use PDO;

@@ -1,4 +1,5 @@
 <?php
+
 namespace Mhorninger\MySQLite;
 
 use Mhorninger\TestCase;
@@ -10,10 +11,10 @@ class NumericMethodTest extends TestCase
         parent::setUp();
     }
 
-    #region MOD
+    //region MOD
     public function testModFunctionTens()
     {
-        $query = "SELECT MOD(234, 10) as value;";
+        $query = 'SELECT MOD(234, 10) as value;';
         $result = $this->conn->selectOne($query);
         $expected = 4;
         $this->assertEquals($expected, $result->value);
@@ -21,7 +22,7 @@ class NumericMethodTest extends TestCase
 
     public function testModFunctionWithPercentModulo()
     {
-        $query = "SELECT 253 % 7 as value;";
+        $query = 'SELECT 253 % 7 as value;';
         $result = $this->conn->selectOne($query);
         $expected = 1;
         $this->assertEquals($expected, $result->value);
@@ -29,7 +30,7 @@ class NumericMethodTest extends TestCase
 
     public function testModFunctionOnes()
     {
-        $query = "SELECT MOD(29,9) as value;";
+        $query = 'SELECT MOD(29,9) as value;';
         $result = $this->conn->selectOne($query);
         $expected = 2;
         $this->assertEquals($expected, $result->value);
@@ -37,7 +38,7 @@ class NumericMethodTest extends TestCase
 
     public function testModFunctionDecimal()
     {
-        $query = "SELECT MOD(34.5,3) as value;";
+        $query = 'SELECT MOD(34.5,3) as value;';
         $result = $this->conn->selectOne($query);
         $expected = 1.5;
         $this->assertEquals($expected, $result->value);
@@ -45,9 +46,10 @@ class NumericMethodTest extends TestCase
 
     public function testModFunctionNull()
     {
-        $query = "SELECT MOD(NULL,3) as value;";
+        $query = 'SELECT MOD(NULL,3) as value;';
         $result = $this->conn->selectOne($query);
         $this->assertNull($result->value);
     }
-    #endregion
+
+    //endregion
 }
