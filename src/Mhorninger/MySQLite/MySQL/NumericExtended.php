@@ -2,9 +2,6 @@
 
 namespace Mhorninger\MySQLite\MySQL;
 
-use DateTime;
-use Mhorninger\MySQLite\Constants;
-
 trait NumericExtended
 {
     // phpcs:disable
@@ -14,6 +11,5 @@ trait NumericExtended
         if ($number && $divisor) {
             return fmod($number, $divisor);
         }
-        return null;
     }
 }

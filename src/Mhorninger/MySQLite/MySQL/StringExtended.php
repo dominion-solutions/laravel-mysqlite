@@ -2,14 +2,10 @@
 
 namespace Mhorninger\MySQLite\MySQL;
 
-use DateTime;
-use Locale;
 use NumberFormatter;
-use Mhorninger\MySQLite\Constants;
 
 trait StringExtended
 {
-
     /**
      * Format a number according to the nubmer of decimals provided and culture.
      * @param mixed... number, decimals, culture.
@@ -25,15 +21,15 @@ trait StringExtended
             $culture = 2 < $length ? $args[2] : 'en_US';
             $pattern = '#,##0';
             if ($decimals > 0) {
-                $pattern = $pattern . ".";
+                $pattern = $pattern.'.';
                 $base = strlen($pattern);
                 $decimals = $base + $decimals;
                 $pattern = str_pad($pattern, $decimals, '0', STR_PAD_RIGHT);
             }
             $formatter = new NumberFormatter($culture, NumberFormatter::PATTERN_DECIMAL, $pattern);
+
             return $formatter->format($number);
         }
-        return null;
     }
 
     // phpcs:disable
@@ -44,8 +40,8 @@ trait StringExtended
             if (strlen($string) < $length) {
                 return str_pad($string, $length, $pad, STR_PAD_LEFT);
             }
+
             return substr($string, 0, $length);
         }
-        return null;
     }
 }
