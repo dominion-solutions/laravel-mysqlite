@@ -55,6 +55,8 @@ In order to provide clutter it is preferable to create a separate Service Provid
 ### Flow
 - [if(condition, onTrue, onFalse)](https://dev.mysql.com/doc/refman/8.0/en/control-flow-functions.html#function_if)
 ### Numeric
+- [mod(number, divisor)](https://dev.mysql.com/doc/refman/5.7/en/mathematical-functions.html#function_mod)
+  - Limitations - Support for Standard `MOD(N,M)` notation only.  `N MOD M` is not supported.
 - [rand()](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_rand)
 - [sqrt(value)](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_sqrt)
 ### String

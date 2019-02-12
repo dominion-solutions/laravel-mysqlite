@@ -6,6 +6,7 @@ use PDO;
 use ReflectionClass;
 use ReflectionMethod;
 use Mhorninger\MySQLite\MySQL\DateTimeExtended;
+use Mhorninger\MySQLite\MySQL\NumericExtended;
 use Mhorninger\MySQLite\MySQL\StringExtended;
 
 /**
@@ -15,6 +16,7 @@ use Mhorninger\MySQLite\MySQL\StringExtended;
 class MySQLite extends \Vectorface\MySQLite\MySQLite
 {
     use DateTimeExtended;
+    use NumericExtended;
     use StringExtended;
 
     /**
