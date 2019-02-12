@@ -46,6 +46,7 @@ In order to provide clutter it is preferable to create a separate Service Provid
 - [date_format(date, format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format)
     - Un-ported Format Strings: `%U`, `%V`, `%X`
     - Other Limitations: `%j` is off by 1 day.
+- [minute(time)](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_minute)
 - [now()](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_now)
 - [timestampdiff(timeUnit, startTimeStamp, endTimeStamp)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timestampdiff)
 - [time_to_sec(timeExpression)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_time-to-sec)

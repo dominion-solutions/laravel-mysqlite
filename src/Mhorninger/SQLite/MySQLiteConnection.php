@@ -41,7 +41,8 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
         $constants = $reflection->getConstants();
         $placeholders = array_keys($constants);
         foreach ($placeholders as $placeholder) {
-            $query = str_replace($placeholder, "'".$constants[$placeholder]."'", $query);
+            $searchFor ="/" . preg_quote($placeholder) . "(?!\\()/";
+            $query = preg_replace($searchFor, "'" . $constants[$placeholder] . "'", $query);
         }
         $reflection = new ReflectionClass(MethodSubstitutionConstants::class);
         $methodConstants = $reflection->getConstants();
