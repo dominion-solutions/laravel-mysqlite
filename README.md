@@ -43,6 +43,9 @@ In order to provide clutter it is preferable to create a separate Service Provid
 ### Aggregate
 - [bit_or (int ...)](https://dev.mysql.com/doc/refman/8.0/en/group-by-functions.html#function_bit-or)
 ### Date and Time
+- [date_format()](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format)
+    - Un-ported Format Strings: `%U`, `%V`, `%X`
+    - Other Limitations: `%j` is off by 1 day.
 - [now()](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_now)
 - [timestampdiff($timeUnit, $startTimeStamp, $endTimeStamp)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timestampdiff)
 - [time_to_sec($timeExpression)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_time-to-sec)

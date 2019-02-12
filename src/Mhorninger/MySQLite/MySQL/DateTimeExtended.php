@@ -47,4 +47,51 @@ trait DateTimeExtended
             return $time->getTimestamp();
         }
     }
+    
+    //phpcs:disable
+    public static function mysql_date_format($date, $format)
+    {
+        //phpcs:enable
+        $dictionary = [
+            '%a' => 'D',
+            '%b' => 'M',
+            '%c' => 'n',
+            '%D' => 'jS',
+            '%d' => 'd',
+            '%e' => 'j',
+            '%f' => 'u',
+            '%H' => 'H',
+            '%h' => 'h',
+            '%I' => 'h',
+            '%i' => 'i',
+            '%j' => 'z',
+            '%k' => 'G',
+            '%l' => 'g',
+            '%M' => 'F',
+            '%m' => 'm',
+            '%p' => 'A',
+            '%r' => 'h:i:s A',
+            '%S' => 's',
+            '%s' => 's',
+            '%T' => 'H:i:s',
+            '%u' => 'W',
+            '%v' => 'W',
+            '%W' => 'l',
+            '%w' => 'w',
+            '%x' => 'o',
+            '%Y' => 'Y',
+            '%y' => 'y',
+            '%%' => '%',
+        ];
+
+        if ($date && $format) {
+            $time = new DateTime($date);
+            $keys = array_keys($dictionary);
+            foreach ($keys as $key) {
+                $format = str_replace($key, $dictionary[$key], $format);
+            }
+            return $time->format($format);
+        }
+        return null;
+    }
 }
