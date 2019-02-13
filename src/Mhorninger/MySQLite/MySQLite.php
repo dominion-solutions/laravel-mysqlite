@@ -5,6 +5,9 @@ namespace Mhorninger\MySQLite;
 use PDO;
 use ReflectionClass;
 use ReflectionMethod;
+use Mhorninger\MySQLite\MySQL\Miscellaneous;
+use Mhorninger\MySQLite\MySQL\StringExtended;
+use Mhorninger\MySQLite\MySQL\NumericExtended;
 use Mhorninger\MySQLite\MySQL\DateTimeExtended;
 
 /**
@@ -14,6 +17,9 @@ use Mhorninger\MySQLite\MySQL\DateTimeExtended;
 class MySQLite extends \Vectorface\MySQLite\MySQLite
 {
     use DateTimeExtended;
+    use Miscellaneous;
+    use NumericExtended;
+    use StringExtended;
 
     /**
      * Get information about functions that are meant to be exposed by this class.
@@ -40,7 +46,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
     /**
      * Add MySQLite compatibility functions to a PDO object.
      *
-     * @param \PDO &$pdo   A PDO instance to which the MySQLite compatibility functions should be added.
+     * @param \PDO $pdo    A PDO instance to which the MySQLite compatibility functions should be added.
      * @param string[] $fnList A list of functions to create on the SQLite database. (Omit to create all.)
      * @return \PDO Returns a reference to the PDO instance passed in to the function.
      */
@@ -60,7 +66,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
     /**
      * Register a method as an SQLite funtion.
      *
-     * @param PDO &$pdo       A PDO instance to which the MySQLite compatibility functions should be added.
+     * @param PDO $pdo        A PDO instance to which the MySQLite compatibility functions should be added.
      * @param string $method     The internal method name.
      * @param int $paramCount The suggested parameter count.
      * @param string[] $fnList     A list of functions to create on the SQLite database, or empty for all.

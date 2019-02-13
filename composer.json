@@ -1,6 +1,6 @@
 {
     "name": "spam-n-eggs/laravel-mysqlite",
-    "description": "MySQLite connector for laravel that Leverages vectorface/mysqlite to add MySQL functionality to SQLite",
+    "description": "MySQLite is a Laravel connector for SQLite that emulates MySQL functionality.  The currently ported functionalities can be viewed in README.md on the github site.",
     "type": "library",
     "require": {
         "vectorface/mysqlite": "^0.1.4",
@@ -19,7 +19,12 @@
     "authors": [
         {
             "name": "Mark J. Horninger",
-            "email": "thisisafakeemailaddr@gmail.com"
+            "email": "thisisafakeemailaddr@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/spam-n-eggs/laravel-mysqlite/graphs/contributors"
         }
     ],
     "autoload": {

@@ -2,7 +2,7 @@
 
 namespace Mhorninger\MySQLite;
 
-class Constants
+class SubstitutionConstants
 {
     const FRAC_SECOND = 'Tv';
     const SECOND = 'Ts';

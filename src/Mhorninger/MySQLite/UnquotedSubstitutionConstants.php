@@ -2,7 +2,8 @@
 
 namespace Mhorninger\MySQLite;
 
-class MethodSubstitutionConstants
+class UnquotedSubstitutionConstants
 {
     const UTC_TIMESTAMP = 'UTC_TIMESTAMP()';
+    const DIV = '/';
 }
