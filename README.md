@@ -44,6 +44,17 @@ In order to provide clutter it is preferable to create a separate Service Provid
 - [bit_or (int ...)](https://dev.mysql.com/doc/refman/8.0/en/group-by-functions.html#function_bit-or)
 ### Date and Time
 - [convert_tz(date, fromTimezone, toTimezone)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_convert-tz)
+- [date_add(date, INTERVAL <number_of> <interval_specifier>)]()
+  - Ported Interval Specifiers
+    - SECOND
+    - MINUTE
+    - HOUR
+    - DAY
+    - WEEK
+    - MONTH
+    - YEAR
+  - Differences
+    - All DATE_ADD calls bring back the entire date time as opposed to just the short date.
 - [date_format(date, format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format)
     - Un-ported Format Strings: `%U`, `%V`, `%X`
     - Other Limitations: `%j` is off by 1 day.
