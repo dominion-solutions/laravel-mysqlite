@@ -59,7 +59,7 @@ class MethodRewriteTest extends TestCase
         $expected = '1984-12-08 00:00:00';
         $this->assertEquals($expected, $result->value);
     }
-    
+
     public function testDateAddEdgeCaseFromDrLongGhost()
     {
         $query = "SELECT DATE_ADD(CONVERT_TZ('2019-01-01 00:00:00', 'GMT', 'SYSTEM'), INTERVAL 30 MINUTE) AS value";
@@ -67,5 +67,6 @@ class MethodRewriteTest extends TestCase
         $expected = '2019-01-01 00:30:00';
         $this->assertEquals($expected, $result->value);
     }
+
     //endregion
 }
