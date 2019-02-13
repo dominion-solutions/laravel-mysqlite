@@ -61,7 +61,8 @@ In order to provide clutter it is preferable to create a separate Service Provid
 - [date_format(date, format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format)
     - Un-ported Format Strings: `%U`, `%V`, `%X`
     - Other Limitations: `%j` is off by 1 day.
-- [minute(time)](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_minute)
+- [hour(time)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_hour)
+- [minute(time)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_minute)
 - [now()](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_now)
 - [timestampdiff(timeUnit, startTimeStamp, endTimeStamp)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_timestampdiff)
 - [time_to_sec(timeExpression)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_time-to-sec)
@@ -73,7 +74,7 @@ In order to provide clutter it is preferable to create a separate Service Provid
 ### Flow
 - [if(condition, onTrue, onFalse)](https://dev.mysql.com/doc/refman/8.0/en/control-flow-functions.html#function_if)
 ### Numeric
-- [mod(number, divisor)](https://dev.mysql.com/doc/refman/5.7/en/mathematical-functions.html#function_mod)
+- [mod(number, divisor)](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_mod)
   - Limitations - Support for Standard `MOD(N,M)` and `N % M` notation only.  `N MOD M` is not supported.
 - [rand()](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_rand)
 - [sqrt(value)](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_sqrt)

@@ -98,6 +98,23 @@ class DateMethodTest extends \Mhorninger\TestCase
 
     //endregion
 
+    //region HOUR
+    public function testHourNormal()
+    {
+        $query = "SELECT HOUR('10:05:03') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 10;
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testHourNull()
+    {
+        $query = "SELECT HOUR(NULL) as value;";
+        $result = $this->conn->selectOne($query);
+        $this->assertNull($result->value);
+    }
+    //endregion
+    
     //region MINUTE
     public function testMinute()
     {

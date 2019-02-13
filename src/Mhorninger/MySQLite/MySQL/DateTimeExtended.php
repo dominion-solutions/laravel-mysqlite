@@ -78,6 +78,15 @@ trait DateTimeExtended
             return $time->format($format);
         }
     }
+    
+    // phpcs:disable
+    public static function mysql_hour($time)
+    {
+        if ($time) {
+            $asTime = new DateTime($time);
+            return $asTime->format('G');
+        }
+    }
 
     // phpcs:disable
     public static function mysql_minute($time)
