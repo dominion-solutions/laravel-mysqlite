@@ -147,6 +147,7 @@ trait DateTimeExtended
     {
         if ($date) {
             $dateTime = new DateTime($date);
+
             return $dateTime->format('N') - 1;
         }
     }
