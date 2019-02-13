@@ -1,6 +1,6 @@
 {
     "name": "spam-n-eggs/laravel-mysqlite",
-    "description": "MySQLite connector for laravel that Leverages vectorface/mysqlite to add MySQL functionality to SQLite",
+    "description": "MySQLite is a connector for SQLite that emulates limited MySQL functionality.  The currently ported functionalities can be viewed in README.md on the github site.",
     "type": "library",
     "require": {
         "vectorface/mysqlite": "^0.1.4",
