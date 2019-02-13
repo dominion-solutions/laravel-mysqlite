@@ -39,6 +39,8 @@ In order to provide clutter it is preferable to create a separate Service Provid
 # Ported Functionality
 ## Constants
 - [UTC_TIMESTAMP][utc_timestamp]
+## Operators 
+- [DIV](https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html#operator_div)
 ## Methods
 ### Aggregate
 - [bit_or (int ...)](https://dev.mysql.com/doc/refman/8.0/en/group-by-functions.html#function_bit-or)

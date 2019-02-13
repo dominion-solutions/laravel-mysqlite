@@ -50,6 +50,42 @@ class NumericMethodTest extends TestCase
         $result = $this->conn->selectOne($query);
         $this->assertNull($result->value);
     }
+    //endregion
 
+    //region div
+    public function testDivKeywordPositive()
+    {
+        $query = 'SELECT 5 DIV 2 as value;';
+        $result = $this->conn->selectOne($query);
+        $expected = 2;
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testDivKeywordNegative()
+    {
+        $query = 'SELECT -5 DIV -2 as value;';
+        $result = $this->conn->selectOne($query);
+        $expected = 2;
+        $this->assertEquals($expected, $result->value);
+        
+    }
+
+    public function testDivKeywordNegativeDivisor()
+    {
+        $query = 'SELECT 5 DIV -2 as value;';
+        $result = $this->conn->selectOne($query);
+        $expected = -2;
+        $this->assertEquals($expected, $result->value);
+        
+    }
+
+    public function testDivKeywordNegativeDividend()
+    {
+        $query = 'SELECT -5 DIV 2 as value;';
+        $result = $this->conn->selectOne($query);
+        $expected = -2;
+        $this->assertEquals($expected, $result->value);
+        
+    }
     //endregion
 }
