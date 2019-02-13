@@ -1,4 +1,5 @@
 <?php
+
 namespace Mhorninger\MySQLite;
 
 use Mhorninger\TestCase;
@@ -41,7 +42,7 @@ class MethodRewriteTest extends TestCase
         $expected = '1983-12-09 00:00:00';
         $this->assertEquals($expected, $result->value);
     }
-    
+
     public function testDateAddReplacementMonth()
     {
         $query = "SELECT DATE_ADD('1983-12-08', INTERVAL 1 MONTH) as value";
@@ -49,7 +50,7 @@ class MethodRewriteTest extends TestCase
         $expected = '1984-01-08 00:00:00';
         $this->assertEquals($expected, $result->value);
     }
-    
+
     public function testDateAddReplacementYear()
     {
         $query = "SELECT DATE_ADD('1983-12-08', INTERVAL 1 YEAR) as value";
