@@ -1,4 +1,5 @@
 <?php
+
 namespace Mhorninger\MySQLite\MySQL;
 
 trait Miscellaneous
@@ -8,7 +9,7 @@ trait Miscellaneous
     {
         //phpcs:enable
         if ($numeric && is_numeric($numeric)) {
-            return long2ip(sprintf("%d", $numeric));
+            return long2ip(sprintf('%d', $numeric));
         }
     }
 }

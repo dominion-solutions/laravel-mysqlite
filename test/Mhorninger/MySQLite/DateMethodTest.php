@@ -218,9 +218,10 @@ class DateMethodTest extends \Mhorninger\TestCase
 
     public function testWeekdayNull()
     {
-        $query = "SELECT WEEKDAY(NULL) as value;";
+        $query = 'SELECT WEEKDAY(NULL) as value;';
         $result = $this->conn->selectOne($query);
         $this->assertNull($result->value);
     }
+
     //endregion
 }
