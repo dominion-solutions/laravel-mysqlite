@@ -5,7 +5,7 @@ namespace Mhorninger\SQLite;
 use ReflectionClass;
 use Mhorninger\MySQLite\MySQLite;
 use Mhorninger\MySQLite\SubstitutionConstants;
-use Mhorninger\MySQLite\MethodSubstitutionConstants;
+use Mhorninger\MySQLite\UnquotedSubstitutionConstants;
 
 class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
 {
@@ -44,7 +44,7 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
             $searchFor = '/'.preg_quote($placeholder).'(?!\\(|\\w)/';
             $query = preg_replace($searchFor, "'".$constants[$placeholder]."'", $query);
         }
-        $reflection = new ReflectionClass(MethodSubstitutionConstants::class);
+        $reflection = new ReflectionClass(UnquotedSubstitutionConstants::class);
         $methodConstants = $reflection->getConstants();
         $placeholders = array_keys($methodConstants);
         foreach ($placeholders as $placeholder) {
