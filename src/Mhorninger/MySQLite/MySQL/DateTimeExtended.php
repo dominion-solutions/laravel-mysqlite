@@ -4,7 +4,7 @@ namespace Mhorninger\MySQLite\MySQL;
 
 use DateTime;
 use DateTimeZone;
-use Mhorninger\MySQLite\Constants;
+use Mhorninger\MySQLite\SubstitutionConstants;
 
 trait DateTimeExtended
 {
@@ -107,7 +107,7 @@ trait DateTimeExtended
         //phpcs:enable
         if ($startTimeStamp != null && is_numeric($startTimeStamp) && $endTimeStamp != null && is_numeric($endTimeStamp)) {
             $differenceInt = $endTimeStamp - $startTimeStamp;
-            if ($timeUnit == Constants::SECOND || $timeUnit = Constants::FRAC_SECOND) {
+            if ($timeUnit == SubstitutionConstants::SECOND || $timeUnit = SubstitutionConstants::FRAC_SECOND) {
                 return $differenceInt;
             }
             $difference = new DateTime();

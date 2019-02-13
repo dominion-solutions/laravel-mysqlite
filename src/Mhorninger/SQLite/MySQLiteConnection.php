@@ -4,7 +4,7 @@ namespace Mhorninger\SQLite;
 
 use ReflectionClass;
 use Mhorninger\MySQLite\MySQLite;
-use Mhorninger\MySQLite\Constants;
+use Mhorninger\MySQLite\SubstitutionConstants;
 use Mhorninger\MySQLite\MethodSubstitutionConstants;
 
 class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
@@ -37,7 +37,7 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
 
     private function scanQueryForConstants($query)
     {
-        $reflection = new ReflectionClass(Constants::class);
+        $reflection = new ReflectionClass(SubstitutionConstants::class);
         $constants = $reflection->getConstants();
         $placeholders = array_keys($constants);
         foreach ($placeholders as $placeholder) {
