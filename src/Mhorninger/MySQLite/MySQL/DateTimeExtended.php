@@ -13,13 +13,19 @@ trait DateTimeExtended
     {
         //phpcs:enable
         if ($date && $fromTimezone && $toTimezone) {
-            $toTimezone = new DateTimeZone($toTimezone);
+
+            //SYSTEM is a reserved timezone in MySQL.  date_default_timezone_get is a good workaround.
             if ($fromTimezone == 'SYSTEM') {
-                $converted = new DateTime($date);
-            } else {
-                $fromTimezone = new DateTimeZone($fromTimezone);
-                $converted = new DateTime($date, $fromTimezone);
+                $fromTimezone = date_default_timezone_get();
+            } 
+            if ($toTimezone == 'SYSTEM') {
+                $toTimezone = date_default_timezone_get();
             }
+
+            $fromTimezone = new DateTimeZone($fromTimezone);
+            $toTimezone = new DateTimeZone($toTimezone);
+            $converted = new DateTime($date, $fromTimezone);
+
             $converted->setTimezone($toTimezone);
 
             return $converted->format('Y-m-d H:i:s');

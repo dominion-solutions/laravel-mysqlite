@@ -39,7 +39,7 @@ In order to provide clutter it is preferable to create a separate Service Provid
 # Ported Functionality
 ## Constants
 - [UTC_TIMESTAMP][utc_timestamp]
-## Operators 
+## Operators
 - [DIV](https://dev.mysql.com/doc/refman/8.0/en/arithmetic-functions.html#operator_div)
 ## Methods
 ### Aggregate

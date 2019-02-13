@@ -6,8 +6,8 @@ class MethodRewriteConstants
 {
     const METHOD_REPLACEMENTS = [
         '/(DATE_ADD)(?=.*?, INTERVAL.*?\\))/' => 'datetime',
-        '/(?<=datetime.{13}, )INTERVAL (?=.*?\\))/' => '\'+',
-        '/(?<=datetime.{22}, )INTERVAL (?=.*?\\))/' => '\'+',
+        '/INTERVAL (?=.*?\\))/' => '\'+',
+        '/INTERVAL (?=.*?\\))/' => '\'+',
         '/SECOND(?=\\))/' => 'seconds\'',
         '/MINUTE(?=\\))/' => 'minutes\'',
         '/HOUR(?=\\))/' => 'hours\'',

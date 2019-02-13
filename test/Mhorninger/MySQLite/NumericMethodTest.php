@@ -90,7 +90,7 @@ class NumericMethodTest extends TestCase
 
     public function testDivKeywordGoofySpacing()
     {
-        $query = 'SELECT 5DIV 2 as value;';
+        $query = 'SELECT (5)DIV 2 as value;';
         $result = $this->conn->selectOne($query);
         $expected = 2;
         $this->assertEquals($expected, $result->value);
