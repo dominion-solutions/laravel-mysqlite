@@ -17,7 +17,7 @@ trait DateTimeExtended
             //SYSTEM is a reserved timezone in MySQL.  date_default_timezone_get is a good workaround.
             if ($fromTimezone == 'SYSTEM') {
                 $fromTimezone = date_default_timezone_get();
-            } 
+            }
             if ($toTimezone == 'SYSTEM') {
                 $toTimezone = date_default_timezone_get();
             }
@@ -78,12 +78,13 @@ trait DateTimeExtended
             return $time->format($format);
         }
     }
-    
+
     // phpcs:disable
     public static function mysql_hour($time)
     {
         if ($time) {
             $asTime = new DateTime($time);
+
             return $asTime->format('G');
         }
     }

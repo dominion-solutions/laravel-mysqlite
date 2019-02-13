@@ -50,6 +50,7 @@ class NumericMethodTest extends TestCase
         $result = $this->conn->selectOne($query);
         $this->assertNull($result->value);
     }
+
     //endregion
 
     //region div
@@ -67,7 +68,6 @@ class NumericMethodTest extends TestCase
         $result = $this->conn->selectOne($query);
         $expected = 2;
         $this->assertEquals($expected, $result->value);
-        
     }
 
     public function testDivKeywordNegativeDivisor()
@@ -76,7 +76,6 @@ class NumericMethodTest extends TestCase
         $result = $this->conn->selectOne($query);
         $expected = -2;
         $this->assertEquals($expected, $result->value);
-        
     }
 
     public function testDivKeywordNegativeDividend()
@@ -85,7 +84,6 @@ class NumericMethodTest extends TestCase
         $result = $this->conn->selectOne($query);
         $expected = -2;
         $this->assertEquals($expected, $result->value);
-        
     }
 
     public function testDivKeywordGoofySpacing()
@@ -94,7 +92,7 @@ class NumericMethodTest extends TestCase
         $result = $this->conn->selectOne($query);
         $expected = 2;
         $this->assertEquals($expected, $result->value);
-        
     }
+
     //endregion
 }

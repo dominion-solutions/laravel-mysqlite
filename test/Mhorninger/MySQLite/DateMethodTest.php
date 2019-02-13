@@ -109,12 +109,13 @@ class DateMethodTest extends \Mhorninger\TestCase
 
     public function testHourNull()
     {
-        $query = "SELECT HOUR(NULL) as value;";
+        $query = 'SELECT HOUR(NULL) as value;';
         $result = $this->conn->selectOne($query);
         $this->assertNull($result->value);
     }
+
     //endregion
-    
+
     //region MINUTE
     public function testMinute()
     {
