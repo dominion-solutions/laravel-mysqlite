@@ -51,7 +51,7 @@ class StringMethodTest extends \Mhorninger\TestCase
 
     public function testFormatWithMathProblem()
     {
-        $query = "SELECT FORMAT((3600 * 1.7 / 281), 1) as value";
+        $query = 'SELECT FORMAT((3600 * 1.7 / 281), 1) as value';
         $result = $this->conn->selectOne($query);
         $expected = '21.8';
         $this->assertEquals($expected, $result->value);
