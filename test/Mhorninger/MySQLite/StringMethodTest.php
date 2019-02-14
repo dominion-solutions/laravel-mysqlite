@@ -49,6 +49,14 @@ class StringMethodTest extends \Mhorninger\TestCase
         $this->assertNull($result->value);
     }
 
+    public function testFormatWithMathProblem()
+    {
+        $query = 'SELECT FORMAT((3600 * 1.7 / 281), 1) as value';
+        $result = $this->conn->selectOne($query);
+        $expected = '21.8';
+        $this->assertEquals($expected, $result->value);
+    }
+
     //endregion
 
     //region LPAD tests
