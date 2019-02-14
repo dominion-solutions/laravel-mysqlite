@@ -15,6 +15,10 @@
         "phpunit/php-code-coverage": "^6.1@dev",
         "php-coveralls/php-coveralls": "2.1.x-dev"
     },
+    "suggest": {
+        "symfony/intl": "If you just need the en locale",
+        "ext-intl": "For locales other than en"
+    },
     "license": "MIT",
     "authors": [
         {
