@@ -82,5 +82,6 @@ class StringMethodTest extends \Mhorninger\TestCase
         $result = $this->conn->selectOne($query);
         $this->assertNull($result->value);
     }
+
     //endregion
 }
