@@ -25,7 +25,7 @@ class MySQLiteServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        Connection::resolverFor('sqlite', function ($connection, $database, $prefix, $config) {
+        Connection::resolverFor('sqlite', function($connection, $database, $prefix, $config) {
             return new MySQLiteConnection($connection, $database, $prefix, $config);
         });
     }

@@ -31,7 +31,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
         $data = [];
 
         $ref = new ReflectionClass(__CLASS__);
-        $methods = $ref->getMethods(ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_STATIC);
+        $methods = $ref->getMethods(ReflectionMethod::IS_PUBLIC|ReflectionMethod::IS_STATIC);
         foreach ($methods as $method) {
             if (strpos($method->name, 'mysql_') !== 0) {
                 continue;
@@ -77,7 +77,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
         $function = substr($method, 6); /* Strip 'mysql_' prefix to get the function name. */
 
         /* Skip functions not in the list. */
-        if (! empty($fnList) && ! in_array($function, $fnList)) {
+        if ( ! empty($fnList) && ! in_array($function, $fnList)) {
             return false;
         }
 
