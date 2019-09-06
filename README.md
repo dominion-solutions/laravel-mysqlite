@@ -6,6 +6,7 @@
 [![Latest Stable Version](https://poser.pugx.org/spam-n-eggs/laravel-mysqlite/v/stable)](https://packagist.org/packages/spam-n-eggs/laravel-mysqlite)
 [![Total Downloads](https://poser.pugx.org/spam-n-eggs/laravel-mysqlite/downloads)](https://packagist.org/packages/spam-n-eggs/laravel-mysqlite)
 [![License](https://poser.pugx.org/spam-n-eggs/laravel-mysqlite/license)](https://packagist.org/packages/spam-n-eggs/laravel-mysqlite)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=spam-n-eggs/laravel-mysqlite)](https://dependabot.com)
 
 Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a database connection that adds select functions from MySQL to SQLite.
 
