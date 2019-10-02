@@ -96,6 +96,13 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertNull($result->value);
     }
 
+    public function testDateFormatWithLiteralColon(){
+        $query = "SELECT DATE_FORMAT('2019-02-18 16:46:07', '%Y-%m-%d %H\\:') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = '2019-02-18 16:';
+        $this->assertEquals($expected, $result->value);
+    }
+
     //endregion
 
     //region HOUR
@@ -240,6 +247,5 @@ class DateMethodTest extends \Mhorninger\TestCase
         $result = $this->conn->selectOne($query);
         $this->assertNull($result->value);
     }
-
     //endregion
 }
