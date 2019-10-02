@@ -6,7 +6,7 @@ use Mhorninger\TestCase;
 
 class MethodRewriteTest extends TestCase
 {
-    public function setUp()
+    protected function setUp() : void
     {
         parent::setUp();
     }
