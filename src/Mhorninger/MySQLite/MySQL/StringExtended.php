@@ -36,7 +36,7 @@ trait StringExtended
     public static function mysql_lpad($string, $length, $pad)
     {
         //phpcs:enable
-        if ($string && $length && $pad) {
+        if (isset($string, $length, $pad)) {
             if (strlen($string) < $length) {
                 return str_pad($string, $length, $pad, STR_PAD_LEFT);
             }

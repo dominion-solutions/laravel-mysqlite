@@ -76,6 +76,14 @@ class StringMethodTest extends \Mhorninger\TestCase
         $this->assertEquals($expected, $result->value);
     }
 
+    public function testLpadZero()
+    {
+        $query = "SELECT LPAD('0',4,'0') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = '0000';
+        $this->assertEquals($expected, $result->value);
+    }
+
     public function testLpadNull()
     {
         $query = "SELECT LPAD(NULL,1,'??') as value;";
