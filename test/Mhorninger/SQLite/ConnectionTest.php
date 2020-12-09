@@ -2,9 +2,9 @@
 
 namespace Mhorninger\SQLite;
 
+use Mhorninger\SQLite\MySQLiteConnection as Connection;
 use PDO;
 use PHPUnit\Framework\TestCase;
-use Mhorninger\SQLite\MySQLiteConnection as Connection;
 
 class ConnectionTest extends TestCase
 {

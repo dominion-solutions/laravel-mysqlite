@@ -2,8 +2,8 @@
 
 namespace Mhorninger\MySQLite;
 
-use DateTime;
 use DateInterval;
+use DateTime;
 
 class DateMethodTest extends \Mhorninger\TestCase
 {

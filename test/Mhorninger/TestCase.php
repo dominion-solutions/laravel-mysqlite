@@ -2,8 +2,8 @@
 
 namespace Mhorninger;
 
-use PDO;
 use Mhorninger\SQLite\MySQLiteConnection;
+use PDO;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
