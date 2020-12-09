@@ -13,7 +13,6 @@ trait DateTimeExtended
     {
         //phpcs:enable
         if ($date && $fromTimezone && $toTimezone) {
-
             //SYSTEM is a reserved timezone in MySQL.  date_default_timezone_get is a good workaround.
             if ($fromTimezone == 'SYSTEM') {
                 $fromTimezone = date_default_timezone_get();
