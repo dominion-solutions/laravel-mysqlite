@@ -17,7 +17,6 @@ install:
   - sudo apt-get install sqlite3
 
 before_script:
-  - composer require --dev php-coveralls/php-coveralls
   - composer install
 
 after_script:
