@@ -6,7 +6,7 @@ use Mhorninger\TestCase;
 
 class NumericMethodTest extends TestCase
 {
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
     }
