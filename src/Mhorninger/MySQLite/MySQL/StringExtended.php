@@ -44,4 +44,17 @@ trait StringExtended
             return substr($string, 0, $length);
         }
     }
+
+    // phpcs:disable
+    public static function mysql_rpad($string, $length, $pad)
+    {
+        //phpcs:enable
+        if (isset($string, $length, $pad)) {
+            if (strlen($string) < $length) {
+                return str_pad($string, $length, $pad, STR_PAD_RIGHT);
+            }
+
+            return substr($string, 0, $length);
+        }
+    }
 }

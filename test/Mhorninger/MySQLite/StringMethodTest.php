@@ -92,4 +92,38 @@ class StringMethodTest extends \Mhorninger\TestCase
     }
 
     //endregion
+
+    //region RPAD tests
+    public function testRpad()
+    {
+        $query = "SELECT RPAD('hi',4,'??') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 'hi??';
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testRpadShorten()
+    {
+        $query = "SELECT RPAD('hi',1,'??') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 'h';
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testRpadZero()
+    {
+        $query = "SELECT RPAD('0',4,'0') as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = '0000';
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testRpadNull()
+    {
+        $query = "SELECT RPAD(NULL,1,'??') as value;";
+        $result = $this->conn->selectOne($query);
+        $this->assertNull($result->value);
+    }
+
+    //endregion
 }
