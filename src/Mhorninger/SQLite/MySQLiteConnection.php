@@ -2,11 +2,11 @@
 
 namespace Mhorninger\SQLite;
 
-use ReflectionClass;
+use Mhorninger\MySQLite\MethodRewriteConstants;
 use Mhorninger\MySQLite\MySQLite;
 use Mhorninger\MySQLite\SubstitutionConstants;
-use Mhorninger\MySQLite\MethodRewriteConstants;
 use Mhorninger\MySQLite\UnquotedSubstitutionConstants;
+use ReflectionClass;
 
 class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
 {

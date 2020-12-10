@@ -2,12 +2,12 @@
 
 namespace Mhorninger\MySQLite;
 
-use DateTime;
 use DateInterval;
+use DateTime;
 
 class DateMethodTest extends \Mhorninger\TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
     }

@@ -84,6 +84,7 @@ In order to provide clutter it is preferable to create a separate Service Provid
 - [concat_ws(separator, string ...)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_concat-ws)
 - [format(number, decimals, locale = 'en_US')](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_format)
 - [lpad(string, length, pad)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_lpad)
+- [rpad(string, length, pad)](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_rpad)
 ### Miscellaneous
 - [inet_ntoa(ipAddress)](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html#function_inet-ntoa)
 ### Vectorface-Specific

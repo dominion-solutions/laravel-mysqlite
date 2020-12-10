@@ -2,15 +2,15 @@
 
 namespace Mhorninger\SQLite;
 
+use Mhorninger\SQLite\MySQLiteConnection as Connection;
 use PDO;
 use PHPUnit\Framework\TestCase;
-use Mhorninger\SQLite\MySQLiteConnection as Connection;
 
 class ConnectionTest extends TestCase
 {
     private $conn = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         //The PDO is not necessary to have right now, so we're not going to define it.
         $pdo = new PDO('sqlite::memory:', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);

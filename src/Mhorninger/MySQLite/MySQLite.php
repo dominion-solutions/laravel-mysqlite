@@ -2,13 +2,13 @@
 
 namespace Mhorninger\MySQLite;
 
+use Mhorninger\MySQLite\MySQL\DateTimeExtended;
+use Mhorninger\MySQLite\MySQL\Miscellaneous;
+use Mhorninger\MySQLite\MySQL\NumericExtended;
+use Mhorninger\MySQLite\MySQL\StringExtended;
 use PDO;
 use ReflectionClass;
 use ReflectionMethod;
-use Mhorninger\MySQLite\MySQL\Miscellaneous;
-use Mhorninger\MySQLite\MySQL\StringExtended;
-use Mhorninger\MySQLite\MySQL\NumericExtended;
-use Mhorninger\MySQLite\MySQL\DateTimeExtended;
 
 /**
  * MySQLite is the extension Vectorface's MySQLite extension.

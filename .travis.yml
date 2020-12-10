@@ -1,8 +1,9 @@
 language: php
 
 php:
-  - 7.2
   - 7.3
+  - 7.4
+  - 8.0
   - nightly
 matrix:
 #Temporarily allow failures on PHP nightly while coveralls.io catches up.
@@ -16,7 +17,6 @@ install:
   - sudo apt-get install sqlite3
 
 before_script:
-  - composer require --dev php-coveralls/php-coveralls
   - composer install
 
 after_script:
