@@ -7,7 +7,7 @@ use DateTime;
 
 class DateMethodTest extends \Mhorninger\TestCase
 {
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
     }
