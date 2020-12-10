@@ -4,7 +4,7 @@ namespace Mhorninger\MySQLite;
 
 class StringMethodTest extends \Mhorninger\TestCase
 {
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
     }
