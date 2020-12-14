@@ -2,6 +2,7 @@
 
 namespace Mhorninger\MySQLite\MySQL;
 
+use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
 use Mhorninger\MySQLite\SubstitutionConstants;
@@ -165,5 +166,43 @@ trait DateTimeExtended
 
             return $dateTime->format('N') - 1;
         }
+    }
+
+    //phpcs:disable
+    public static function mysql_yearweek($date, $mode)
+    {
+        if(!$date) {
+            return null;
+        }
+
+        $date = Carbon::parse($date);
+        $year = $date->year;
+        $fourOrMore = false;
+        $weekStarts = 0;
+        switch($mode) {
+            case 4:
+                $fourOrMore = true;
+                $date->startofWeek(Carbon::SUNDAY);
+                break;
+            case 6:
+                $fourOrMore = true;
+            case 2:
+                $weekStarts = 1;
+            case 0:
+                $date->startOfWeek(Carbon::SUNDAY);
+                break;
+            case 1:
+                $date->startOfWeek(Carbon::MONDAY);
+                break;
+            case 3:
+                $fourOrMore = true;
+            case 7:
+                $weekStarts = 1;
+            case 5:
+                $date->startOfWeek(Carbon::MONDAY);
+                break;
+        }
+        $week = $date->isoWeekYear().str_pad($date->isoWeek(), '2', '0', STR_PAD_LEFT);
+        return $week;
     }
 }

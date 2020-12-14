@@ -241,5 +241,90 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertNull($result->value);
     }
 
+    public function testYearweekLayover()
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201852;
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testYearweekNull()
+    {
+        $query = "SELECT YEARWEEK(NULL, 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $this->assertNull($result->value);
+    }
+
+    public function testYearweekMode0()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+
+    }
+
+    public function testYearweekMode1()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201902;
+        $this->assertEquals($expected, $result->value);
+
+    }
+
+    public function testYearweekMode2()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+
+    }
+
+    public function testYearweekMode3()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201902;
+        $this->assertEquals($expected, $result->value);
+
+    }
+
+    public function testYearweekMode4()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201902;
+        $this->assertEquals($expected, $result->value);
+
+    }
+
+    public function testYearweekMode5()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+
+    }
+
+    public function testYearweekMode6()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201902;
+        $this->assertEquals($expected, $result->value);
+
+    }
+
+    public function testYearweekMode7()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
     //endregion
 }
