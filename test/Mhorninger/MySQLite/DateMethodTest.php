@@ -251,20 +251,20 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertNull($result->value);
     }
 
-    // public function testWeekNoMode()
+    // public function testWeekNoMode() //mode value is required
     // {
     //     $query = "SELECT WEEK(NULL) as value;";
     //     $result = $this->conn->selectOne($query);
     //     $this->assertNull($result->value);
     // }
 
-    // public function testWeekMode0()
-    // {
-    //     $query = "SELECT WEEK('2011-10-31', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 44;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testWeekMode0()
+    {
+        $query = "SELECT WEEK('2011-10-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 44;
+        $this->assertEquals($expected, $result->value);
+    }
 
     public function testWeekMode1()
     {
@@ -274,13 +274,13 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertEquals($expected, $result->value);
     }
 
-    // public function testWeekMode2()
-    // {
-    //     $query = "SELECT WEEK('2021-08-16', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 33;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testWeekMode2()
+    {
+        $query = "SELECT WEEK('2021-08-16', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 33;
+        $this->assertEquals($expected, $result->value);
+    }
 
     public function testWeekMode3()
     {
@@ -298,13 +298,13 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertEquals($expected, $result->value);
     }
 
-    // public function testWeekMode5()
-    // {
-    //     $query = "SELECT WEEK('2019-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testWeekMode5()
+    {
+        $query = "SELECT WEEK('2019-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
 
     public function testWeekMode6()
     {
@@ -322,41 +322,41 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertEquals($expected, $result->value);
     }
 
-    // public function testWeekMode0Again()
-    // {
-    //     $query = "SELECT WEEK('2019-01-07', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 1;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode0Again2()
-    // {
-    //     $query = "SELECT WEEK('2011-10-31', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 44;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode0Again3()
-    // {
-    //     $query = "SELECT WEEK('2008-02-20', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 7;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode0Again4()
-    // {
-    //     $query = "SELECT WEEK('1987-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode0Again5()
-    // {
-    //     $query = "SELECT WEEK('2010-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testWeekMode0Again()
+    {
+        $query = "SELECT WEEK('2019-01-07', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Again2()
+    {
+        $query = "SELECT WEEK('2015-06-15', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 24;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Again3()
+    {
+        $query = "SELECT WEEK('2007-12-27', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 51;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Again4()
+    {
+        $query = "SELECT WEEK('2003-01-11', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Again5()
+    {
+        $query = "SELECT WEEK('1996-12-29', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
 
     public function testWeekMode1Again()
     {
@@ -394,27 +394,41 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertEquals($expected, $result->value);
     }
 
-    // public function testWeekMode2Again()
-    // {
-    //     $query = "SELECT WEEK('2019-01-07', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 1;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode2Again2()
-    // {
-    //     $query = "SELECT WEEK('1987-01-01', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode2Again3()
-    // {
-    //     $query = "SELECT WEEK('2010-01-01', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testWeekMode2Again()
+    {
+        $query = "SELECT WEEK('2019-01-07', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Again2()
+    {
+        $query = "SELECT WEEK('2015-06-15', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 24;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Again3()
+    {
+        $query = "SELECT WEEK('2007-12-27', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 51;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Again4()
+    {
+        $query = "SELECT WEEK('2003-01-11', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Again5()
+    {
+        $query = "SELECT WEEK('1996-12-29', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
 
     public function testWeekMode3Again()
     {
@@ -488,41 +502,41 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertEquals($expected, $result->value);
     }
 
-    // public function testWeekMode5Again()
-    // {
-    //     $query = "SELECT WEEK('2019-01-07', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 1;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Again2()
-    // {
-    //     $query = "SELECT WEEK('2015-06-15', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 24;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Again3()
-    // {
-    //     $query = "SELECT WEEK('2007-12-27', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Again4()
-    // {
-    //     $query = "SELECT WEEK('2003-01-11', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 1;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Again5()
-    // {
-    //     $query = "SELECT WEEK('1996-12-29', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testWeekMode5Again()
+    {
+        $query = "SELECT WEEK('2019-01-07', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Again2()
+    {
+        $query = "SELECT WEEK('2015-06-15', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 24;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Again3()
+    {
+        $query = "SELECT WEEK('2007-12-27', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Again4()
+    {
+        $query = "SELECT WEEK('2003-01-11', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Again5()
+    {
+        $query = "SELECT WEEK('1996-12-29', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
 
     public function testWeekMode6Again()
     {
@@ -583,7 +597,7 @@ class DateMethodTest extends \Mhorninger\TestCase
     }
     public function testWeekMode7Again4()
     {
-        $query = "SELECT WEEK('2003-01-11', 7) as value;"; //year start wendsday, day is saturday
+        $query = "SELECT WEEK('2003-01-11', 7) as value;";
         $result = $this->conn->selectOne($query);
         $expected = 1;
         $this->assertEquals($expected, $result->value);
@@ -595,91 +609,203 @@ class DateMethodTest extends \Mhorninger\TestCase
         $expected = 52;
         $this->assertEquals($expected, $result->value);
     }
-    public function testWeekMode7Again6()
-    {
-        $query = "SELECT WEEK('2002-01-11', 7) as value;"; //year starts tuesday, day is friday
-        $result = $this->conn->selectOne($query);
-        $expected = 1;
-        $this->assertEquals($expected, $result->value);
-    }
-    public function testWeekMode7Again7()
-    {
-        $query = "SELECT WEEK('2007-01-11', 7) as value;"; //year starts monday, day is thursday *
-        $result = $this->conn->selectOne($query);
-        $expected = 2;
-        $this->assertEquals($expected, $result->value);
-    }
-    public function testWeekMode7Again8()
-    {
-        $query = "SELECT WEEK('2004-01-11', 7) as value;"; //year starts thursday, day is sunday
-        $result = $this->conn->selectOne($query);
-        $expected = 1;
-        $this->assertEquals($expected, $result->value);
-    }
-    public function testWeekMode7Again9()
-    {
-        $query = "SELECT WEEK('2000-01-11', 7) as value;"; //year starts saturday, day is tuesday *
-        $result = $this->conn->selectOne($query);
-        $expected = 2;
-        $this->assertEquals($expected, $result->value);
-    }
-    public function testWeekMode7Again10()
-    {
-        $query = "SELECT WEEK('1999-01-11', 7) as value;"; //year starts friday, day is monday *
-        $result = $this->conn->selectOne($query);
-        $expected = 2;
-        $this->assertEquals($expected, $result->value);
-    }
-    public function testWeekMode7Again11()
-    {
-        $query = "SELECT WEEK('2006-01-11', 7) as value;"; //year starts sunday, day is wendsday *
-        $result = $this->conn->selectOne($query);
-        $expected = 2;
-        $this->assertEquals($expected, $result->value);
-    }
 
-    // public function testWeekMode0Layover()
-    // {
-    //     $query = "SELECT WEEK('2017-12-31', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 53;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode0Layover2()
-    // {
-    //     $query = "SELECT WEEK('2018-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode0Layover3()
-    // {
-    //     $query = "SELECT WEEK('2016-12-31', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode0Layover4()
-    // {
-    //     $query = "SELECT WEEK('2017-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 1;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode0Layover5()
-    // {
-    //     $query = "SELECT WEEK('2007-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode0Layover6()
-    // {
-    //     $query = "SELECT WEEK('2000-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testWeekMode0Layover() // monday start of year
+    {
+        $query = "SELECT WEEK('2018-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover2() //tuesday start of year
+    {
+        $query = "SELECT WEEK('2019-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover3() // wendsday start of year
+    {
+        $query = "SELECT WEEK('2020-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover4() // thursday start of year
+    {
+        $query = "SELECT WEEK('2015-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover5() // friday start of year
+    {
+        $query = "SELECT WEEK('2016-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover6() // saturday start of year
+    {
+        $query = "SELECT WEEK('2022-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover7() // sunday start of year
+    {
+        $query = "SELECT WEEK('2023-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT WEEK('2001-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT WEEK('2013-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT WEEK('2025-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT WEEK('2009-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT WEEK('1993-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT WEEK('2005-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT WEEK('2017-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover15() // sunday end of year
+    {
+        $query = "SELECT WEEK('2017-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover16() //monday end of year
+    {
+        $query = "SELECT WEEK('2018-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover17() // tuesday end of year
+    {
+        $query = "SELECT WEEK('2019-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover18() // wendsday end of year
+    {
+        $query = "SELECT WEEK('2014-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover19() //thursday end of year
+    {
+        $query = "SELECT WEEK('2015-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover20() // friday end of year
+    {
+        $query = "SELECT WEEK('2021-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover21() // saturday end of year
+    {
+        $query = "SELECT WEEK('2022-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT WEEK('2000-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT WEEK('2012-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT WEEK('2024-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT WEEK('2008-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT WEEK('1992-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT WEEK('2004-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode0Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT WEEK('2016-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
     
     public function testWeekMode1Layover() // monday start of year
     {
@@ -878,41 +1004,202 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertEquals($expected, $result->value);
     }
 
-    // public function testWeekMode2Layover()
-    // {
-    //     $query = "SELECT WEEK('2018-01-02', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 53;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode2Layover2()
-    // {
-    //     $query = "SELECT WEEK('2017-12-31', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 53;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode2Layover3()
-    // {
-    //     $query = "SELECT WEEK('2018-01-07', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 1;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode2Layover4()
-    // {
-    //     $query = "SELECT WEEK('2016-12-31', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode2Layover5()
-    // {
-    //     $query = "SELECT WEEK('2017-01-01', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 1;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testWeekMode2Layover() // monday start of year
+    {
+        $query = "SELECT WEEK('2018-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover2() //tuesday start of year
+    {
+        $query = "SELECT WEEK('2019-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover3() // wendsday start of year
+    {
+        $query = "SELECT WEEK('2020-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover4() // thursday start of year
+    {
+        $query = "SELECT WEEK('2015-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover5() // friday start of year
+    {
+        $query = "SELECT WEEK('2016-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover6() // saturday start of year
+    {
+        $query = "SELECT WEEK('2022-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover7() // sunday start of year
+    {
+        $query = "SELECT WEEK('2023-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT WEEK('2001-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT WEEK('2013-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT WEEK('2025-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT WEEK('2009-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT WEEK('1993-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT WEEK('2005-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT WEEK('2017-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover15() // sunday end of year
+    {
+        $query = "SELECT WEEK('2017-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover16() //monday end of year
+    {
+        $query = "SELECT WEEK('2018-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover17() // tuesday end of year
+    {
+        $query = "SELECT WEEK('2019-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover18() // wendsday end of year
+    {
+        $query = "SELECT WEEK('2014-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover19() //thursday end of year
+    {
+        $query = "SELECT WEEK('2015-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover20() // friday end of year
+    {
+        $query = "SELECT WEEK('2021-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover21() // saturday end of year
+    {
+        $query = "SELECT WEEK('2022-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT WEEK('2000-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT WEEK('2012-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT WEEK('2024-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT WEEK('2008-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT WEEK('1992-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT WEEK('2004-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode2Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT WEEK('2016-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
 
     public function testWeekMode3Layover() // monday start of year
     {
@@ -1308,202 +1595,202 @@ class DateMethodTest extends \Mhorninger\TestCase
         $this->assertEquals($expected, $result->value);
     }
 
-    // public function testWeekMode5Layover() // monday start of year
-    // {
-    //     $query = "SELECT WEEK('2018-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 1;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover2() //tuesday start of year
-    // {
-    //     $query = "SELECT WEEK('2019-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover3() // wendsday start of year
-    // {
-    //     $query = "SELECT WEEK('2020-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover4() // thursday start of year
-    // {
-    //     $query = "SELECT WEEK('2015-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover5() // friday start of year
-    // {
-    //     $query = "SELECT WEEK('2016-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover6() // saturday start of year
-    // {
-    //     $query = "SELECT WEEK('2022-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover7() // sunday start of year
-    // {
-    //     $query = "SELECT WEEK('2023-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover8() // monday start of year after leap year
-    // {
-    //     $query = "SELECT WEEK('2001-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 1;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover9() // tuesday start of year after leap year
-    // {
-    //     $query = "SELECT WEEK('2013-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover10() // wendsday start of year after leap year
-    // {
-    //     $query = "SELECT WEEK('2025-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover11() // thursday start of year after leap year
-    // {
-    //     $query = "SELECT WEEK('2009-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover12() // friday start of year after leap year
-    // {
-    //     $query = "SELECT WEEK('1993-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover13() // saturday start of year after leap year
-    // {
-    //     $query = "SELECT WEEK('2005-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover14() // sunday start of year after leap year
-    // {
-    //     $query = "SELECT WEEK('2017-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 0;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover15() // sunday end of year
-    // {
-    //     $query = "SELECT WEEK('2017-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover16() //monday end of year
-    // {
-    //     $query = "SELECT WEEK('2018-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 53;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover17() // tuesday end of year
-    // {
-    //     $query = "SELECT WEEK('2019-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover18() // wendsday end of year
-    // {
-    //     $query = "SELECT WEEK('2014-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover19() //thursday end of year
-    // {
-    //     $query = "SELECT WEEK('2015-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover20() // friday end of year
-    // {
-    //     $query = "SELECT WEEK('2021-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover21() // saturday end of year
-    // {
-    //     $query = "SELECT WEEK('2022-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover22() // sunday end of year of leap year
-    // {
-    //     $query = "SELECT WEEK('2000-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover23() // monday end of year of leap year
-    // {
-    //     $query = "SELECT WEEK('2012-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 53;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover24() // tuesday end of year of leap year
-    // {
-    //     $query = "SELECT WEEK('2024-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 53;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover25() // wendsday end of year of leap year
-    // {
-    //     $query = "SELECT WEEK('2008-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover26() // thursday end of year of leap year
-    // {
-    //     $query = "SELECT WEEK('1992-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover27() // friday end of year of leap year
-    // {
-    //     $query = "SELECT WEEK('2004-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testWeekMode5Layover28() // saturday end of year of leap year
-    // {
-    //     $query = "SELECT WEEK('2016-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 52;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testWeekMode5Layover() // monday start of year
+    {
+        $query = "SELECT WEEK('2018-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover2() //tuesday start of year
+    {
+        $query = "SELECT WEEK('2019-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover3() // wendsday start of year
+    {
+        $query = "SELECT WEEK('2020-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover4() // thursday start of year
+    {
+        $query = "SELECT WEEK('2015-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover5() // friday start of year
+    {
+        $query = "SELECT WEEK('2016-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover6() // saturday start of year
+    {
+        $query = "SELECT WEEK('2022-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover7() // sunday start of year
+    {
+        $query = "SELECT WEEK('2023-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT WEEK('2001-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 1;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT WEEK('2013-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT WEEK('2025-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT WEEK('2009-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT WEEK('1993-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT WEEK('2005-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT WEEK('2017-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 0;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover15() // sunday end of year
+    {
+        $query = "SELECT WEEK('2017-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover16() //monday end of year
+    {
+        $query = "SELECT WEEK('2018-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover17() // tuesday end of year
+    {
+        $query = "SELECT WEEK('2019-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover18() // wendsday end of year
+    {
+        $query = "SELECT WEEK('2014-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover19() //thursday end of year
+    {
+        $query = "SELECT WEEK('2015-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover20() // friday end of year
+    {
+        $query = "SELECT WEEK('2021-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover21() // saturday end of year
+    {
+        $query = "SELECT WEEK('2022-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT WEEK('2000-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT WEEK('2012-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT WEEK('2024-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 53;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT WEEK('2008-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT WEEK('1992-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT WEEK('2004-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testWeekMode5Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT WEEK('2016-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 52;
+        $this->assertEquals($expected, $result->value);
+    }
 
     public function testWeekMode6Layover() // monday start of year
     {
@@ -1730,7 +2017,7 @@ class DateMethodTest extends \Mhorninger\TestCase
         $expected = 52;
         $this->assertEquals($expected, $result->value);
     }
-    public function testWeekMode7Layover5() //SQL logic flaw? says should be 52, but 53 matches all the math = SOLVED??? //friday start of year
+    public function testWeekMode7Layover5() //friday start of year
     {
         $query = "SELECT WEEK('2016-01-01', 7) as value;";
         $result = $this->conn->selectOne($query);
@@ -1902,471 +2189,1947 @@ class DateMethodTest extends \Mhorninger\TestCase
     //endregion
 
     //region YEARWEEK
-    // public function testYearweekNull()
-    // {
-    //     $query = "SELECT YEARWEEK(NULL, 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $this->assertNull($result->value);
-    // }
+    public function testYearweekNull()
+    {
+        $query = "SELECT YEARWEEK(NULL, 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $this->assertNull($result->value);
+    }
 
-    // public function testYearweekNoMode()
+    // public function testYearweekNoMode() //mode value is required
     // {
     //     $query = "SELECT YEARWEEK(NULL) as value;";
     //     $result = $this->conn->selectOne($query);
     //     $this->assertNull($result->value);
     // }
 
-    // public function testYearweekMode0()
-    // {
-    //     $query = "SELECT YEARWEEK('2011-10-31', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201144;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearweekMode0()
+    {
+        $query = "SELECT YEARWEEK('2011-10-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201144;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode1()
-    // {
-    //     $query = "SELECT YEARWEEK('2003-03-03', 1) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 200310;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearweekMode1()
+    {
+        $query = "SELECT YEARWEEK('2003-03-03', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200310;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode2()
-    // {
-    //     $query = "SELECT YEARWEEK('2021-08-16', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 202133;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearweekMode2()
+    {
+        $query = "SELECT YEARWEEK('2021-08-16', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202133;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode3()
-    // {
-    //     $query = "SELECT YEARWEEK('2000-02-29', 3) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 200009;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearweekMode3()
+    {
+        $query = "SELECT YEARWEEK('2000-02-29', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200009;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode4()
-    // {
-    //     $query = "SELECT YEARWEEK('2002-04-27', 4) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 200217;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearweekMode4()
+    {
+        $query = "SELECT YEARWEEK('2002-04-27', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200217;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode5()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201853;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearweekMode5()
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201853;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode6()
-    // {
-    //     $query = "SELECT YEARWEEK('1996-06-15', 6) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 199624;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearweekMode6()
+    {
+        $query = "SELECT YEARWEEK('1996-06-15', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199624;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode7()
-    // {
-    //     $query = "SELECT YEARWEEK('2014-11-21', 7) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201446;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearweekMode7()
+    {
+        $query = "SELECT YEARWEEK('2014-11-21', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201446;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode0Again()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-07', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201901;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode0Again()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Again2()
+    {
+        $query = "SELECT YEARWEEK('2015-06-15', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201524;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Again3()
+    {
+        $query = "SELECT YEARWEEK('2007-12-27', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200751;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Again4()
+    {
+        $query = "SELECT YEARWEEK('2003-01-11', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Again5()
+    {
+        $query = "SELECT YEARWEEK('1996-12-29', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode1Again()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-07', 1) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201902;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode1Again()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201902;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Again2()
+    {
+        $query = "SELECT YEARWEEK('2015-06-15', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201525;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Again3()
+    {
+        $query = "SELECT YEARWEEK('2007-12-27', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Again4()
+    {
+        $query = "SELECT YEARWEEK('2003-01-11', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200302;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Again5()
+    {
+        $query = "SELECT YEARWEEK('1996-12-29', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode2Again()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-07', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201901;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode2Again()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Again2()
+    {
+        $query = "SELECT YEARWEEK('2015-06-15', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201524;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Again3()
+    {
+        $query = "SELECT YEARWEEK('2007-12-27', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200751;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Again4()
+    {
+        $query = "SELECT YEARWEEK('2003-01-11', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Again5()
+    {
+        $query = "SELECT YEARWEEK('1996-12-29', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode3Again()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-07', 3) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201902;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode3Again()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201902;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Again2()
+    {
+        $query = "SELECT YEARWEEK('2015-06-15', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201525;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Again3()
+    {
+        $query = "SELECT YEARWEEK('2007-12-27', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Again4()
+    {
+        $query = "SELECT YEARWEEK('2003-01-11', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200302;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Again5()
+    {
+        $query = "SELECT YEARWEEK('1996-12-29', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode4Again()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-07', 4) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201902;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode4Again()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201902;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Again2()
+    {
+        $query = "SELECT YEARWEEK('2015-06-15', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201524;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Again3()
+    {
+        $query = "SELECT YEARWEEK('2007-12-27', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Again4()
+    {
+        $query = "SELECT YEARWEEK('2003-01-11', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200302;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Again5()
+    {
+        $query = "SELECT YEARWEEK('1996-12-29', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199701;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode5Again()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-07', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201901;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode5Again()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Again2()
+    {
+        $query = "SELECT YEARWEEK('2015-06-15', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201524;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Again3()
+    {
+        $query = "SELECT YEARWEEK('2007-12-27', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Again4()
+    {
+        $query = "SELECT YEARWEEK('2003-01-11', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Again5()
+    {
+        $query = "SELECT YEARWEEK('1996-12-29', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode6Again()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-07', 6) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201902;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode6Again()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201902;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Again2()
+    {
+        $query = "SELECT YEARWEEK('2015-06-15', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201524;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Again3()
+    {
+        $query = "SELECT YEARWEEK('2007-12-27', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Again4()
+    {
+        $query = "SELECT YEARWEEK('2003-01-11', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200302;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Again5()
+    {
+        $query = "SELECT YEARWEEK('1996-12-29', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199701;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode7Again()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-07', 7) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201901;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode7Again()
+    {
+        $query = "SELECT YEARWEEK('2019-01-07', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Again2()
+    {
+        $query = "SELECT YEARWEEK('2015-06-15', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201524;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Again3()
+    {
+        $query = "SELECT YEARWEEK('2007-12-27', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Again4()
+    {
+        $query = "SELECT YEARWEEK('2003-01-11', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Again5()
+    {
+        $query = "SELECT YEARWEEK('1996-12-29', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode0Layover()
-    // {
-    //     $query = "SELECT YEARWEEK('2017-12-31', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201753;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode0Layover2()
-    // {
-    //     $query = "SELECT YEARWEEK('2018-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201753;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode0Layover3()
-    // {
-    //     $query = "SELECT YEARWEEK('2016-12-31', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201652;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode0Layover4()
-    // {
-    //     $query = "SELECT YEARWEEK('2017-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201701;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode0Layover5()
-    // {
-    //     $query = "SELECT YEARWEEK('2007-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 200653;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode0Layover6()
-    // {
-    //     $query = "SELECT YEARWEEK('1987-01-01', 0) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 198652;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode0Layover() // monday start of year
+    {
+        $query = "SELECT YEARWEEK('2018-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201753;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover2() //tuesday start of year
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover3() // wendsday start of year
+    {
+        $query = "SELECT YEARWEEK('2020-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201952;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover4() // thursday start of year
+    {
+        $query = "SELECT YEARWEEK('2015-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover5() // friday start of year
+    {
+        $query = "SELECT YEARWEEK('2016-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover6() // saturday start of year
+    {
+        $query = "SELECT YEARWEEK('2022-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover7() // sunday start of year
+    {
+        $query = "SELECT YEARWEEK('2023-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2001-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200053;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2013-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2025-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2009-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('1993-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2005-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2017-01-01', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201701;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover15() // sunday end of year
+    {
+        $query = "SELECT YEARWEEK('2017-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201753;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover16() //monday end of year
+    {
+        $query = "SELECT YEARWEEK('2018-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover17() // tuesday end of year
+    {
+        $query = "SELECT YEARWEEK('2019-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201952;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover18() // wendsday end of year
+    {
+        $query = "SELECT YEARWEEK('2014-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover19() //thursday end of year
+    {
+        $query = "SELECT YEARWEEK('2015-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover20() // friday end of year
+    {
+        $query = "SELECT YEARWEEK('2021-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover21() // saturday end of year
+    {
+        $query = "SELECT YEARWEEK('2022-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2000-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200053;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2012-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2024-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2008-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('1992-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2004-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode0Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2016-12-31', 0) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode1Layover()
-    // {
-    //     $query = "SELECT YEARWEEK('2015-12-31', 1) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201553;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode1Layover2()
-    // {
-    //     $query = "SELECT YEARWEEK('2016-01-01', 1) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201553;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode1Layover3()
-    // {
-    //     $query = "SELECT YEARWEEK('2011-12-31', 1) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201152;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode1Layover4()
-    // {
-    //     $query = "SELECT YEARWEEK('2012-01-01', 1) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201152;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode1Layover5()
-    // {
-    //     $query = "SELECT YEARWEEK('1987-01-01', 1) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 198701;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode1Layover() // monday start of year
+    {
+        $query = "SELECT YEARWEEK('2018-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201801;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover2() //tuesday start of year
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover3() // wendsday start of year
+    {
+        $query = "SELECT YEARWEEK('2020-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202001;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover4() // thursday start of year
+    {
+        $query = "SELECT YEARWEEK('2015-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover5() // friday start of year
+    {
+        $query = "SELECT YEARWEEK('2016-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201553;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover6() // saturday start of year
+    {
+        $query = "SELECT YEARWEEK('2022-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover7() // sunday start of year
+    {
+        $query = "SELECT YEARWEEK('2023-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2001-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200101;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2013-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2025-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2009-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('1993-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2005-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2017-01-01', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover15() // sunday end of year
+    {
+        $query = "SELECT YEARWEEK('2017-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover16() //monday end of year
+    {
+        $query = "SELECT YEARWEEK('2018-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover17() // tuesday end of year
+    {
+        $query = "SELECT YEARWEEK('2019-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202001;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover18() // wendsday end of year
+    {
+        $query = "SELECT YEARWEEK('2014-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover19() //thursday end of year
+    {
+        $query = "SELECT YEARWEEK('2015-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201553;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover20() // friday end of year
+    {
+        $query = "SELECT YEARWEEK('2021-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover21() // saturday end of year
+    {
+        $query = "SELECT YEARWEEK('2022-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2000-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200052;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2012-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2024-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2008-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('1992-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2004-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode1Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2016-12-31', 1) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode2Layover()
-    // {
-    //     $query = "SELECT YEARWEEK('2018-01-02', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201753;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode2Layover2()
-    // {
-    //     $query = "SELECT YEARWEEK('2017-12-31', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201753;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode2Layover3()
-    // {
-    //     $query = "SELECT YEARWEEK('2018-01-07', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201801;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode2Layover4()
-    // {
-    //     $query = "SELECT YEARWEEK('2016-12-31', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201652;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode2Layover5()
-    // {
-    //     $query = "SELECT YEARWEEK('2017-01-01', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201701;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode2Layover6()
-    // {
-    //     $query = "SELECT YEARWEEK('1987-01-01', 2) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 198652;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode2Layover() // monday start of year
+    {
+        $query = "SELECT YEARWEEK('2018-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201753;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover2() //tuesday start of year
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover3() // wendsday start of year
+    {
+        $query = "SELECT YEARWEEK('2020-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201952;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover4() // thursday start of year
+    {
+        $query = "SELECT YEARWEEK('2015-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover5() // friday start of year
+    {
+        $query = "SELECT YEARWEEK('2016-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover6() // saturday start of year
+    {
+        $query = "SELECT YEARWEEK('2022-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover7() // sunday start of year
+    {
+        $query = "SELECT YEARWEEK('2023-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2001-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200053;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2013-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2025-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2009-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('1993-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2005-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2017-01-01', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201701;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover15() // sunday end of year
+    {
+        $query = "SELECT YEARWEEK('2017-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201753;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover16() //monday end of year
+    {
+        $query = "SELECT YEARWEEK('2018-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover17() // tuesday end of year
+    {
+        $query = "SELECT YEARWEEK('2019-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201952;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover18() // wendsday end of year
+    {
+        $query = "SELECT YEARWEEK('2014-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover19() //thursday end of year
+    {
+        $query = "SELECT YEARWEEK('2015-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover20() // friday end of year
+    {
+        $query = "SELECT YEARWEEK('2021-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover21() // saturday end of year
+    {
+        $query = "SELECT YEARWEEK('2022-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2000-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200053;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2012-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2024-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2008-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('1992-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2004-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode2Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2016-12-31', 2) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode3Layover()
-    // {
-    //     $query = "SELECT YEARWEEK('2016-01-03', 3) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201553;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode3Layover2()
-    // {
-    //     $query = "SELECT YEARWEEK('2016-01-04', 3) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201601;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode3Layover3()
-    // {
-    //     $query = "SELECT YEARWEEK('1987-01-01', 3) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 198701;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode3Layover() // monday start of year
+    {
+        $query = "SELECT YEARWEEK('2018-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201801;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover2() //tuesday start of year
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover3() // wendsday start of year
+    {
+        $query = "SELECT YEARWEEK('2020-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202001;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover4() // thursday start of year
+    {
+        $query = "SELECT YEARWEEK('2015-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover5() // friday start of year
+    {
+        $query = "SELECT YEARWEEK('2016-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201553;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover6() // saturday start of year
+    {
+        $query = "SELECT YEARWEEK('2022-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover7() // sunday start of year
+    {
+        $query = "SELECT YEARWEEK('2023-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2001-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200101;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2013-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2025-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2009-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('1993-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2005-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2017-01-01', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover15() // sunday end of year
+    {
+        $query = "SELECT YEARWEEK('2017-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover16() //monday end of year
+    {
+        $query = "SELECT YEARWEEK('2018-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover17() // tuesday end of year
+    {
+        $query = "SELECT YEARWEEK('2019-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202001;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover18() // wendsday end of year
+    {
+        $query = "SELECT YEARWEEK('2014-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover19() //thursday end of year
+    {
+        $query = "SELECT YEARWEEK('2015-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201553;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover20() // friday end of year
+    {
+        $query = "SELECT YEARWEEK('2021-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover21() // saturday end of year
+    {
+        $query = "SELECT YEARWEEK('2022-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2000-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200052;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2012-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2024-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2008-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('1992-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2004-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode3Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2016-12-31', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
 
+    public function testYearWeekMode4Layover() // monday start of year
+    {
+        $query = "SELECT YEARWEEK('2018-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201801;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover2() //tuesday start of year
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover3() // wendsday start of year
+    {
+        $query = "SELECT YEARWEEK('2020-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202001;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover4() // thursday start of year
+    {
+        $query = "SELECT YEARWEEK('2015-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover5() //friday start of year
+    {
+        $query = "SELECT YEARWEEK('2016-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover6() // saturday start of year
+    {
+        $query = "SELECT YEARWEEK('2022-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover7() // sunday start of year
+    {
+        $query = "SELECT YEARWEEK('2023-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2001-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200101;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2013-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2025-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2009-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200853;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('1993-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2005-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2017-01-01', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201701;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover15() // sunday end of year
+    {
+        $query = "SELECT YEARWEEK('2017-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201801;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover16() //monday end of year
+    {
+        $query = "SELECT YEARWEEK('2018-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover17() // tuesday end of year
+    {
+        $query = "SELECT YEARWEEK('2019-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202001;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover18() // wendsday end of year
+    {
+        $query = "SELECT YEARWEEK('2014-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover19() //thursday end of year
+    {
+        $query = "SELECT YEARWEEK('2015-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover20() // friday end of year
+    {
+        $query = "SELECT YEARWEEK('2021-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover21() // saturday end of year
+    {
+        $query = "SELECT YEARWEEK('2022-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2000-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200101;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2012-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2024-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2008-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200853;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('1992-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2004-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode4Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2016-12-31', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode4Layover()
-    // {
-    //     $query = "SELECT YEARWEEK('2020-12-31', 4) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 202053;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode4Layover2()
-    // {
-    //     $query = "SELECT YEARWEEK('2021-01-01', 4) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 202053;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode4Layover3()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-12-31', 4) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 202001;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode4Layover4()
-    // {
-    //     $query = "SELECT YEARWEEK('2020-01-01', 4) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 202001;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode4Layover5()
-    // {
-    //     $query = "SELECT YEARWEEK('2016-12-31', 4) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201652;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode4Layover6()
-    // {
-    //     $query = "SELECT YEARWEEK('2017-01-01', 4) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201701;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode4Layover7()
-    // {
-    //     $query = "SELECT YEARWEEK('1987-01-01', 4) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 198653;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode5Layover() // monday start of year
+    {
+        $query = "SELECT YEARWEEK('2018-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201801;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover2() //tuesday start of year
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201853;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover3() // wendsday start of year
+    {
+        $query = "SELECT YEARWEEK('2020-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201952;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover4() // thursday start of year
+    {
+        $query = "SELECT YEARWEEK('2015-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover5() // friday start of year
+    {
+        $query = "SELECT YEARWEEK('2016-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover6() // saturday start of year
+    {
+        $query = "SELECT YEARWEEK('2022-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover7() // sunday start of year
+    {
+        $query = "SELECT YEARWEEK('2023-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2001-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200101;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2013-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2025-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2009-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('1993-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2005-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2017-01-01', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover15() // sunday end of year
+    {
+        $query = "SELECT YEARWEEK('2017-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover16() //monday end of year
+    {
+        $query = "SELECT YEARWEEK('2018-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201853;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover17() // tuesday end of year
+    {
+        $query = "SELECT YEARWEEK('2019-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201952;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover18() // wendsday end of year
+    {
+        $query = "SELECT YEARWEEK('2014-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover19() //thursday end of year
+    {
+        $query = "SELECT YEARWEEK('2015-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover20() // friday end of year
+    {
+        $query = "SELECT YEARWEEK('2021-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover21() // saturday end of year
+    {
+        $query = "SELECT YEARWEEK('2022-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2000-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200052;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2012-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2024-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2008-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('1992-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2004-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode5Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2016-12-31', 5) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode5Layover()
-    // {
-    //     $query = "SELECT YEARWEEK('2018-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201853;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode5Layover2()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201853;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode5Layover3()
-    // {
-    //     $query = "SELECT YEARWEEK('2017-12-31', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201752;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode5Layover4()
-    // {
-    //     $query = "SELECT YEARWEEK('2018-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201801;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode5Layover5()
-    // {
-    //     $query = "SELECT YEARWEEK('1987-01-01', 5) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 198652;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode6Layover() // monday start of year
+    {
+        $query = "SELECT YEARWEEK('2018-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201801;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover2() //tuesday start of year
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover3() // wendsday start of year
+    {
+        $query = "SELECT YEARWEEK('2020-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202001;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover4() // thursday start of year
+    {
+        $query = "SELECT YEARWEEK('2015-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover5() //friday start of year
+    {
+        $query = "SELECT YEARWEEK('2016-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover6() // saturday start of year
+    {
+        $query = "SELECT YEARWEEK('2022-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover7() // sunday start of year
+    {
+        $query = "SELECT YEARWEEK('2023-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2001-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200101;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2013-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2025-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2009-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200853;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('1993-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2005-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2017-01-01', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201701;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover15() // sunday end of year
+    {
+        $query = "SELECT YEARWEEK('2017-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201801;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover16() //monday end of year
+    {
+        $query = "SELECT YEARWEEK('2018-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201901;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover17() // tuesday end of year
+    {
+        $query = "SELECT YEARWEEK('2019-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202001;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover18() // wendsday end of year
+    {
+        $query = "SELECT YEARWEEK('2014-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover19() //thursday end of year
+    {
+        $query = "SELECT YEARWEEK('2015-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover20() // friday end of year
+    {
+        $query = "SELECT YEARWEEK('2021-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover21() // saturday end of year
+    {
+        $query = "SELECT YEARWEEK('2022-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2000-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200101;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2012-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201301;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2024-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202501;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2008-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200853;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('1992-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2004-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode6Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2016-12-31', 6) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
 
-    // public function testYearweekMode6Layover()
-    // {
-    //     $query = "SELECT YEARWEEK('2014-12-30', 6) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201453;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode6Layover2()
-    // {
-    //     $query = "SELECT YEARWEEK('2015-01-01', 6) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201453;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode6Layover3()
-    // {
-    //     $query = "SELECT YEARWEEK('2014-01-01', 6) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201401;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode6Layover4()
-    // {
-    //     $query = "SELECT YEARWEEK('2013-12-31', 6) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201401;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode6Layover5()
-    // {
-    //     $query = "SELECT YEARWEEK('2012-01-01', 6) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201201;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode6Layover6()
-    // {
-    //     $query = "SELECT YEARWEEK('2011-12-31', 6) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201152;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode6Layover7()
-    // {
-    //     $query = "SELECT YEARWEEK('1987-01-01', 6) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 198653;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-
-    // public function testYearweekMode7Layover()
-    // {
-    //     $query = "SELECT YEARWEEK('2019-01-01', 7) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201853;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode7Layover2()
-    // {
-    //     $query = "SELECT YEARWEEK('2018-12-30', 7) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201852;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode7Layover3()
-    // {
-    //     $query = "SELECT YEARWEEK('2017-12-31', 7) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201752;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode7Layover4()
-    // {
-    //     $query = "SELECT YEARWEEK('2018-01-01', 7) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201801;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode7Layover5() //SQL logic flaw? says should be 201552, but 201553 matches all the math = SOLVED???
-    // {
-    //     $query = "SELECT YEARWEEK('2016-01-01', 7) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 201552;
-    //     $this->assertEquals($expected, $result->value);
-    // }
-    // public function testYearweekMode7Layover6()
-    // {
-    //     $query = "SELECT YEARWEEK('1987-01-01', 7) as value;";
-    //     $result = $this->conn->selectOne($query);
-    //     $expected = 198652;
-    //     $this->assertEquals($expected, $result->value);
-    // }
+    public function testYearWeekMode7Layover() // monday start of year
+    {
+        $query = "SELECT YEARWEEK('2018-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201801;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover2() //tuesday start of year
+    {
+        $query = "SELECT YEARWEEK('2019-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201853;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover3() // wendsday start of year
+    {
+        $query = "SELECT YEARWEEK('2020-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201952;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover4() // thursday start of year
+    {
+        $query = "SELECT YEARWEEK('2015-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover5() //friday start of year
+    {
+        $query = "SELECT YEARWEEK('2016-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover6() // saturday start of year
+    {
+        $query = "SELECT YEARWEEK('2022-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover7() // sunday start of year
+    {
+        $query = "SELECT YEARWEEK('2023-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover8() // monday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2001-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200101;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover9() // tuesday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2013-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover10() // wendsday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2025-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover11() // thursday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2009-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover12() // friday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('1993-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover13() // saturday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2005-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover14() // sunday start of year after leap year
+    {
+        $query = "SELECT YEARWEEK('2017-01-01', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover15() // sunday end of year
+    {
+        $query = "SELECT YEARWEEK('2017-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201752;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover16() //monday end of year
+    {
+        $query = "SELECT YEARWEEK('2018-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201853;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover17() // tuesday end of year
+    {
+        $query = "SELECT YEARWEEK('2019-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201952;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover18() // wendsday end of year
+    {
+        $query = "SELECT YEARWEEK('2014-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover19() //thursday end of year
+    {
+        $query = "SELECT YEARWEEK('2015-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201552;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover20() // friday end of year
+    {
+        $query = "SELECT YEARWEEK('2021-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202152;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover21() // saturday end of year
+    {
+        $query = "SELECT YEARWEEK('2022-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover22() // sunday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2000-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200052;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover23() // monday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2012-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201253;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover24() // tuesday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2024-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 202453;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover25() // wendsday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2008-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200852;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover26() // thursday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('1992-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 199252;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover27() // friday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2004-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 200452;
+        $this->assertEquals($expected, $result->value);
+    }
+    public function testYearWeekMode7Layover28() // saturday end of year of leap year
+    {
+        $query = "SELECT YEARWEEK('2016-12-31', 7) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 201652;
+        $this->assertEquals($expected, $result->value);
+    }
     
     //endregion
 }
