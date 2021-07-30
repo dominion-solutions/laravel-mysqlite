@@ -15,7 +15,7 @@ Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a datab
 1. Execute `composer require spam-n-eggs/laravel-mysqlite` or alternatively `composer require --dev spam-n-eggs/laravel-mysqlite`
 
 ## Registering as a Service Provider
-In order to provide clutter it is preferable to create a separate Service Provider
+In order to reduce clutter it is preferable to create a separate Service Provider
 1. If there is a need to conditionally register the Service (i.e. you only use it in testing) create a new class in `app/Providers` that extends `Mhorninger\SQLite\MySQLiteServiceProvider`
 
     ```php
