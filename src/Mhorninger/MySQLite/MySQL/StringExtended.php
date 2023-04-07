@@ -8,7 +8,7 @@ trait StringExtended
 {
     /**
      * Format a number according to the nubmer of decimals provided and culture.
-     * 
+     *
      * @param mixed... number, decimals, culture.
      */
     // phpcs:disable
