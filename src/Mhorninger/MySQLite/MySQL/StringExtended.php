@@ -57,4 +57,14 @@ trait StringExtended
             return substr($string, 0, $length);
         }
     }
+
+    public static function mysql_left($string, $length)
+    {
+        return substr($string, 0, $length);
+    }
+
+    public static function mysql_right($string, $length)
+    {
+        return substr($string, -$length);
+    }
 }

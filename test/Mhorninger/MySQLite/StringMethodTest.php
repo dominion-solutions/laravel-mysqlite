@@ -125,5 +125,21 @@ class StringMethodTest extends \Mhorninger\TestCase
         $this->assertNull($result->value);
     }
 
+    public function testLeft()
+    {
+        $query = "SELECT LEFT('TESTING', 4) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 'TEST';
+        $this->assertEquals($expected, $result->value);
+    }
+
+    public function testRight()
+    {
+        $query = "SELECT RIGHT('TESTING', 3) as value;";
+        $result = $this->conn->selectOne($query);
+        $expected = 'ING';
+        $this->assertEquals($expected, $result->value);
+    }
+
     //endregion
 }

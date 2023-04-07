@@ -15,5 +15,7 @@ class MethodRewriteConstants
         '/WEEK(?=\\))/' => 'weeks\'',
         '/MONTH(?=\\))/' => 'months\'',
         '/YEAR(?=\\))/' => 'years\'',
+        '/LEFT(?=.*?, .*?\\))/' => '`LEFT`',
+        '/RIGHT(?=.*?, .*?\\))/' => '`RIGHT`',
     ];
 }
