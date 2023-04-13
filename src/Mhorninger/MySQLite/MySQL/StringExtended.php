@@ -8,6 +8,7 @@ trait StringExtended
 {
     /**
      * Format a number according to the nubmer of decimals provided and culture.
+     *
      * @param mixed... number, decimals, culture.
      */
     // phpcs:disable
@@ -56,5 +57,15 @@ trait StringExtended
 
             return substr($string, 0, $length);
         }
+    }
+
+    public static function mysql_left($string, $length)
+    {
+        return substr($string, 0, $length);
+    }
+
+    public static function mysql_right($string, $length)
+    {
+        return substr($string, -$length);
     }
 }
