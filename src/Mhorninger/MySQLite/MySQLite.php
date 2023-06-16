@@ -53,7 +53,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
     public static function &createFunctions(\PDO &$pdo, array $fnList = null)
     {
         if ($pdo->getAttribute(PDO::ATTR_DRIVER_NAME) !== 'sqlite') {
-            throw new InvalidArgumentException('Expecting a PDO instance using the SQLite driver');
+            throw new \InvalidArgumentException('Expecting a PDO instance using the SQLite driver');
         }
 
         foreach (static::getPublicMethodData() as $method => $paramCount) {

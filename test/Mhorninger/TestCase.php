@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
-    protected $conn = null;
+    protected ?MySQLiteConnection $conn = null;
 
     public function setUp(): void
     {
@@ -17,5 +17,10 @@ class TestCase extends BaseTestCase
 
         //Set up the connection.
         $this->conn = new MySQLiteConnection($pdo);
+    }
+
+    public function selectValue(string $query)
+    {
+        return collect($this->conn->select($query)[0])->values()->first();
     }
 }
