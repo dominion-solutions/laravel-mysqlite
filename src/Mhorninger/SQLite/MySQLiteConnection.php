@@ -17,10 +17,10 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
     /**
      * Create a new database connection instance.
      *
-     * @param  \PDO|\Closure     $pdo
-     * @param  string   $database
-     * @param  string   $tablePrefix
-     * @param  array    $config
+     * @param  \PDO|\Closure  $pdo
+     * @param  string  $database
+     * @param  string  $tablePrefix
+     * @param  array  $config
      * @return void
      */
     public function __construct($pdo, $database = '', $tablePrefix = '', array $config = [])
@@ -86,6 +86,6 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
     {
         return $this
             ->rewriteRules
-            ->reduce(fn($query, $rule) => preg_replace($rule[0], $rule[1], $query), $query);
+            ->reduce(fn ($query, $rule) => preg_replace($rule[0], $rule[1], $query), $query);
     }
 }

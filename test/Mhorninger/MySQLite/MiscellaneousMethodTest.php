@@ -26,7 +26,7 @@ class MiscellaneousMethodTest extends TestCase
     {
         $date = CarbonImmutable::today();
 
-        $this->conn->addFunction('TEST_DATE', fn() => $date, 0);
+        $this->conn->addFunction('TEST_DATE', fn () => $date, 0);
 
         $result = $this->selectValue('SELECT TEST_DATE()');
         $this->assertEquals($date, $result);

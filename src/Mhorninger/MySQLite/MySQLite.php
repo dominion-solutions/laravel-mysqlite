@@ -12,6 +12,7 @@ use ReflectionMethod;
 
 /**
  * MySQLite is the extension Vectorface's MySQLite extension.
+ *
  * @see \Vectorface\MySQLite\MySQLite
  */
 class MySQLite extends \Vectorface\MySQLite\MySQLite
@@ -46,8 +47,8 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
     /**
      * Add MySQLite compatibility functions to a PDO object.
      *
-     * @param \PDO $pdo    A PDO instance to which the MySQLite compatibility functions should be added.
-     * @param string[] $fnList A list of functions to create on the SQLite database. (Omit to create all.)
+     * @param  \PDO  $pdo  A PDO instance to which the MySQLite compatibility functions should be added.
+     * @param  string[]  $fnList  A list of functions to create on the SQLite database. (Omit to create all.)
      * @return \PDO Returns a reference to the PDO instance passed in to the function.
      */
     public static function &createFunctions(\PDO &$pdo, array $fnList = null)
@@ -66,10 +67,10 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
     /**
      * Register a method as an SQLite funtion.
      *
-     * @param PDO $pdo        A PDO instance to which the MySQLite compatibility functions should be added.
-     * @param string $method     The internal method name.
-     * @param int $paramCount The suggested parameter count.
-     * @param string[] $fnList     A list of functions to create on the SQLite database, or empty for all.
+     * @param  PDO  $pdo  A PDO instance to which the MySQLite compatibility functions should be added.
+     * @param  string  $method  The internal method name.
+     * @param  int  $paramCount  The suggested parameter count.
+     * @param  string[]  $fnList  A list of functions to create on the SQLite database, or empty for all.
      * @return bool Returns true if the method was registed. False otherwise.
      */
     protected static function registerMethod(\PDO &$pdo, $method, $paramCount, array $fnList = null)
