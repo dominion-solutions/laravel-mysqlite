@@ -34,6 +34,7 @@ In order to reduce clutter it is preferable to create a separate Service Provide
         }
     }
     ```
+
 1. Add a line to `app/Providers/AppServiceProvider.php` within the `register()` method:
     ```php
     $this->app->register(MySQLiteServiceProvider::class);
@@ -93,6 +94,32 @@ In order to reduce clutter it is preferable to create a separate Service Provide
 #### Comparison
 - [least(mixed ...)](https://github.com/Vectorface/MySQLite/blob/master/src/Vectorface/MySQLite/MySQL/Comparison.php)
 
+# Custom Functionality
+While this package aims to cover common functionality, there are times when you need support for a function quickly or a custom function that is unique to your application. This is easy to do with two methods from the `boot()` method of your service provider class:
+
+```php
+<?php
+
+class MySQLiteServiceProvider extends ServiceProvider
+{
+    ...
+
+    public function boot()
+    {
+        $connection = $this->app->get('db')->connection();
+        
+        if ($connection->getDriverName() === 'sqlite') {
+            $connection
+                ->addRewriteRule('/CURDATE\(\)/', "date('now')")
+                ->addFunction('CURDATE', fn() => CarbonImmutable::today()->toDateString(), 0);
+        }
+    }
+}
+```
+
+- `addRewriteRule()` will replace a string in your query using regex, should Sqlite have a native function that could be used as a 1:1 replacement.
+- `addFunction()` uses PDO `sqliteCreateFunction()` to register a custom function with PHP in the event that Sqlite doesn't have a drop-in replacement or if logic is more complicated. [Read More][sqlitecreatefunction].
+
 # Contributing
 Want to file a bug, contribute some code, improve documentation, or request a feature? Awesome Sauce! Read up on our guidelines for [contributing][contributing].  All contributions must follow our [Code of Conduct][codeofconduct].
 
@@ -114,3 +141,4 @@ License: (MIT) https://github.com/Vectorface/MySQLite/blob/master/LICENSE
 [contributing]: ./.github/contributing.md
 [issue]: https://github.com/spam-n-eggs/laravel-mysqlite/issues
 [codeofconduct]:./.github/CODE_OF_CONDUCT.md
+[sqlitecreatefunction]: https://www.php.net/manual/en/pdo.sqlitecreatefunction.php
