@@ -2,7 +2,6 @@
 
 namespace Mhorninger\SQLite;
 
-use Illuminate\Support\Collection;
 use Mhorninger\MySQLite\MethodRewriteConstants;
 use Mhorninger\MySQLite\MySQLite;
 use Mhorninger\MySQLite\SubstitutionConstants;
