@@ -12,7 +12,8 @@ use ReflectionClass;
 class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
 {
     const ESCAPE_CHARS = ['`', '[', '"'];
-    private Collection $rewriteRules;
+    /** @var \Illuminate\Support\Collection */
+    private $rewriteRules;
 
     /**
      * Create a new database connection instance.
