@@ -7,9 +7,7 @@ use NumberFormatter;
 trait StringExtended
 {
     /**
-     * Format a number according to the nubmer of decimals provided and culture.
-     *
-     * @param mixed... number, decimals, culture.
+     * Format a number according to the number of decimals provided and culture.
      */
     // phpcs:disable
     public static function mysql_format()
