@@ -51,7 +51,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
      * @param  string[]  $fnList  A list of functions to create on the SQLite database. (Omit to create all.)
      * @return \PDO Returns a reference to the PDO instance passed in to the function.
      */
-    public static function &createFunctions(\PDO &$pdo, array $fnList = null)
+    public static function &createFunctions(\PDO &$pdo, ?array $fnList = null)
     {
         if ($pdo->getAttribute(PDO::ATTR_DRIVER_NAME) !== 'sqlite') {
             throw new \InvalidArgumentException('Expecting a PDO instance using the SQLite driver');
@@ -73,7 +73,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
      * @param  string[]  $fnList  A list of functions to create on the SQLite database, or empty for all.
      * @return bool Returns true if the method was registed. False otherwise.
      */
-    protected static function registerMethod(\PDO &$pdo, $method, $paramCount, array $fnList = null)
+    protected static function registerMethod(\PDO &$pdo, $method, $paramCount, ?array $fnList = null)
     {
         $function = substr($method, 6); /* Strip 'mysql_' prefix to get the function name. */
 

@@ -373,7 +373,7 @@ trait DateTimeExtended
                         return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->isoWeek(null, Carbon::SUNDAY), '2', '0', STR_PAD_LEFT);
                     } else {
                         if ($firstSunday->weekOfYear == 1) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad(($date->weekOfYear - 1), '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
                         } else {
                             return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
                         }
@@ -403,7 +403,7 @@ trait DateTimeExtended
                         return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->isoWeek(null, Carbon::SUNDAY), '2', '0', STR_PAD_LEFT);
                     } else {
                         if ($firstSunday->weekOfYear == 1) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad(($date->weekOfYear - 1), '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
                         } else {
                             return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
                         }
@@ -438,7 +438,7 @@ trait DateTimeExtended
                         if ($firstMonday->weekOfYear == 1) { //if the week with the first monday on is the first week, then it matches what we want
                             return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
                         } else { //if the week with the first monday is the second week then we need to subtract a week because it counted the first week as the week before because it have 4 days in it
-                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad(($date->weekOfYear - 1), '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
                         }
                     }
                     break;
@@ -468,7 +468,7 @@ trait DateTimeExtended
                         if ($firstMonday->weekOfYear == 1) { //if the week with the first monday on is the first week, then it matches what we want
                             return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
                         } else { //if the week with the first monday is the second week then we need to subtract a week because it counted the first week as the week before because it have 4 days in it
-                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad(($date->weekOfYear - 1), '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
                         }
                     }
                     break;
@@ -493,7 +493,7 @@ trait DateTimeExtended
                         return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->isoWeek(null, Carbon::SUNDAY), '2', '0', STR_PAD_LEFT);
                     } else {
                         if ($firstSunday->weekOfYear == 1) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad(($date->weekOfYear - 1), '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
                         } else {
                             return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
                         }
