@@ -4,7 +4,7 @@
     "version": "1.4.0",
     "type": "library",
     "require": {
-        "vectorface/mysqlite": "^0.1.4",
+        "vectorface/mysqlite": "^0.1.7 || ^0.2.0",
         "illuminate/database": "^7.0 || ^8.0",
         "php": ">=7.3.0"
     },
