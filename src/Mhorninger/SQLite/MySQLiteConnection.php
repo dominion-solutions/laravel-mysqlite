@@ -2,7 +2,6 @@
 
 namespace Mhorninger\SQLite;
 
-use Illuminate\Support\Collection;
 use Mhorninger\MySQLite\MethodRewriteConstants;
 use Mhorninger\MySQLite\MySQLite;
 use Mhorninger\MySQLite\SubstitutionConstants;
@@ -12,7 +11,8 @@ use ReflectionClass;
 class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
 {
     const ESCAPE_CHARS = ['`', '[', '"'];
-    private Collection $rewriteRules;
+    /** @var \Illuminate\Support\Collection */
+    private $rewriteRules;
 
     /**
      * Create a new database connection instance.
@@ -86,6 +86,8 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
     {
         return $this
             ->rewriteRules
-            ->reduce(fn ($query, $rule) => preg_replace($rule[0], $rule[1], $query), $query);
+            ->reduce(function ($query, $rule) {
+                return preg_replace($rule[0], $rule[1], $query);
+            }, $query);
     }
 }

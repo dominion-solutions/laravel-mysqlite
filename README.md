@@ -1,12 +1,12 @@
 # laravel-mysqlite
-[![Build Status](https://travis-ci.org/spam-n-eggs/laravel-mysqlite.svg?branch=master)](https://travis-ci.org/spam-n-eggs/laravel-mysqlite)
-[![Coverage Status](https://coveralls.io/repos/github/spam-n-eggs/laravel-mysqlite/badge.svg?branch=master)](https://coveralls.io/github/spam-n-eggs/laravel-mysqlite?branch=master)
+[![CI](https://img.shields.io/github/actions/workflow/status/spam-n-eggs/laravel-mysqlite/ci.yml?branch=master&style=flat-square&label=CI)](https://github.com/spam-n-eggs/laravel-mysqlite/actions/workflows/ci.yml)
+[![codecov](https://img.shields.io/codecov/c/github/spam-n-eggs/laravel-mysqlite?style=flat-square&label=coverage)](https://codecov.io/gh/spam-n-eggs/laravel-mysqlite)
 [![StyleCI](https://github.styleci.io/repos/167069269/shield?branch=master)](https://github.styleci.io/repos/167069269)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spam-n-eggs/laravel-mysqlite/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/spam-n-eggs/laravel-mysqlite/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/spam-n-eggs/laravel-mysqlite/v/stable)](https://packagist.org/packages/spam-n-eggs/laravel-mysqlite)
 [![Total Downloads](https://poser.pugx.org/spam-n-eggs/laravel-mysqlite/downloads)](https://packagist.org/packages/spam-n-eggs/laravel-mysqlite)
 [![License](https://poser.pugx.org/spam-n-eggs/laravel-mysqlite/license)](https://packagist.org/packages/spam-n-eggs/laravel-mysqlite)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=spam-n-eggs/laravel-mysqlite)](https://dependabot.com)
+[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen?style=flat-square&logo=dependabot)](https://github.com/spam-n-eggs/laravel-mysqlite/network/updates)
 
 Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a database connection that adds select functions from MySQL to SQLite.
 

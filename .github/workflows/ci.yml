@@ -1,0 +1,103 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: ['7.3', '7.4', '8.0']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: sqlite3
+          coverage: xdebug
+
+      - name: Install Dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Run Code Style Check
+        run: ./vendor/bin/phpcs
+
+      - name: Run Static Analysis
+        run: ./vendor/bin/phpstan analyse --no-progress
+
+      - name: Run Tests
+        run: ./vendor/bin/phpunit
+
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          extensions: sqlite3
+
+      - name: Install Dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Audit Dependencies for Vulnerabilities
+        run: composer audit --format=json > audit.json
+
+      - name: Convert Audit to SARIF
+        uses: typisttech/composer-audit-to-sarif-action@v0
+        id: comsarif
+        with:
+          audit: audit.json
+
+      - name: Upload Dependency Audit to Security Tab
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: ${{ steps.comsarif.outputs.sarif }}
+
+      - name: Detect Hardcoded Secrets
+        uses: gitleaks/gitleaks-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+
+  coverage:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          extensions: sqlite3
+          coverage: xdebug
+
+      - name: Install Dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Run Tests with Coverage
+        run: ./vendor/bin/phpunit --coverage-clover coverage.xml
+
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v6
+        with:
+          files: coverage.xml

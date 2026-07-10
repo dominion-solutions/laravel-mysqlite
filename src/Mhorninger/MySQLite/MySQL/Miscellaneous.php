@@ -9,7 +9,7 @@ trait Miscellaneous
     {
         //phpcs:enable
         if ($numeric && is_numeric($numeric)) {
-            return long2ip(sprintf('%d', $numeric));
+            return long2ip((int) sprintf('%d', $numeric));
         }
     }
 }

@@ -59,13 +59,17 @@ trait StringExtended
         }
     }
 
+    // phpcs:disable
     public static function mysql_left($string, $length)
     {
+        //phpcs:enable
         return substr($string, 0, $length);
     }
 
+    // phpcs:disable
     public static function mysql_right($string, $length)
     {
+        //phpcs:enable
         return substr($string, -$length);
     }
 }

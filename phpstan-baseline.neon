@@ -1,0 +1,41 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Comparison operation \"\\=\\=\" between Carbon\\\\CarbonImmutable\\|int and 1 results in an error\\.$#"
+			count: 1
+			path: src/Mhorninger/MySQLite/MySQLite.php
+
+		-
+			message: "#^Comparison operation \"\\>\\=\" between Carbon\\\\CarbonImmutable\\|int and 52 results in an error\\.$#"
+			count: 1
+			path: src/Mhorninger/MySQLite/MySQLite.php
+
+		-
+			message: "#^Method Mhorninger\\\\MySQLite\\\\MySQLite\\:\\:mysql_format\\(\\) should return string but return statement is missing\\.$#"
+			count: 1
+			path: src/Mhorninger/MySQLite/MySQLite.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(mixed\\.\\.\\. number, decimals, culture\\.\\)\\: Unexpected token \"number\", expected variable at offset 115$#"
+			count: 1
+			path: src/Mhorninger/MySQLite/MySQLite.php
+
+		-
+			message: "#^Parameter \\#1 \\$locale of class NumberFormatter constructor expects string, null given\\.$#"
+			count: 1
+			path: src/Mhorninger/MySQLite/MySQLite.php
+
+		-
+			message: "#^Right side of \\|\\| is always true\\.$#"
+			count: 1
+			path: src/Mhorninger/MySQLite/MySQLite.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 19
+			path: src/Mhorninger/MySQLite/MySQLite.php
+
+		-
+			message: "#^Method Mhorninger\\\\SQLite\\\\MySQLiteServiceProvider\\:\\:register\\(\\) should return Illuminate\\\\Database\\\\Connection but return statement is missing\\.$#"
+			count: 1
+			path: src/Mhorninger/SQLite/MySQLiteServiceProvider.php

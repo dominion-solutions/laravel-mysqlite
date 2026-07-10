@@ -8,7 +8,8 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
-    protected ?MySQLiteConnection $conn = null;
+    /** @var \Mhorninger\SQLite\MySQLiteConnection|null */
+    protected $conn = null;
 
     public function setUp(): void
     {
