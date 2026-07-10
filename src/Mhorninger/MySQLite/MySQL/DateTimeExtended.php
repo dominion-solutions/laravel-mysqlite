@@ -359,28 +359,28 @@ trait DateTimeExtended
 
                     if ($sow->year < $date->year) {
                         if ($first->dayOfWeek < 2 || ($first->dayOfWeek == 2 && $lastYearLeapYear == 0)) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($eow->year > $date->year) {
                         if ($last->dayOfWeek > 1 || $last->dayOfWeek == 1 && ($date->year % 4) != 0) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($firstSunday == $first) {
-                        return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->isoWeek(null, Carbon::SUNDAY), '2', '0', STR_PAD_LEFT);
+                        return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) $date->isoWeek(null, Carbon::SUNDAY), 2, '0', STR_PAD_LEFT);
                     } else {
                         if ($firstSunday->weekOfYear == 1) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) ($date->weekOfYear - 1), 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) $date->weekOfYear, 2, '0', STR_PAD_LEFT);
                         }
                     }
                     break;
                 case 1: //uses same algorithm as mode 3 of WEEK function
-                    return $date->isoWeekYear().str_pad($date->isoWeek, '2', '0', STR_PAD_LEFT);
+                    return $date->isoWeekYear().str_pad((string) $date->isoWeek, 2, '0', STR_PAD_LEFT);
                     break;
                 case 2: //uses same algorithm as mode 2 of WEEK function
                     $sow = $date->startOfWeek(Carbon::SUNDAY);
@@ -389,31 +389,31 @@ trait DateTimeExtended
 
                     if ($sow->year < $date->year) {
                         if ($first->dayOfWeek < 2 || ($first->dayOfWeek == 2 && $lastYearLeapYear == 0)) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($eow->year > $date->year) {
                         if ($last->dayOfWeek > 1 || $last->dayOfWeek == 1 && ($date->year % 4) != 0) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($firstSunday == $first) {
-                        return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->isoWeek(null, Carbon::SUNDAY), '2', '0', STR_PAD_LEFT);
+                        return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) $date->isoWeek(null, Carbon::SUNDAY), 2, '0', STR_PAD_LEFT);
                     } else {
                         if ($firstSunday->weekOfYear == 1) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) ($date->weekOfYear - 1), 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) $date->weekOfYear, 2, '0', STR_PAD_LEFT);
                         }
                     }
                     break;
                 case 3: //uses same algorithm as mode 3 of WEEK function
-                    return $date->isoWeekYear().str_pad($date->isoWeek, '2', '0', STR_PAD_LEFT);
+                    return $date->isoWeekYear().str_pad((string) $date->isoWeek, 2, '0', STR_PAD_LEFT);
                     break;
                 case 4: //uses same algorithm as mode 6 of WEEK function
-                    return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->isoWeek(null, Carbon::SUNDAY), '2', '0', STR_PAD_LEFT);
+                    return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) $date->isoWeek(null, Carbon::SUNDAY), 2, '0', STR_PAD_LEFT);
                     break;
                 case 5: //uses same algorithm as mode 7 of WEEK function
                     $sow = $date->startOfWeek(Carbon::MONDAY);
@@ -422,28 +422,28 @@ trait DateTimeExtended
 
                     if ($sow->year < $date->year) { //if the year of the monday at the start of the given week (sow) is the year before the year of the actual date given
                         if ($first->dayOfWeekIso < 3 || ($first->dayOfWeekIso == 3 && $lastYearLeapYear == 0)) { //if the first day of the year (first) is tuesday or monday OR if the first day is wendsday and the last year is a leap year
-                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->addWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->addWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->addWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->addWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($eow->year > $date->year) { //if the year of the sunday at the end of the given week (eow) is the year after the year of the actual date given
                         if ($last->dayOfWeekIso > 2 || $last->dayOfWeekIso == 2 && ($date->year % 4) != 0) { //if the last day of the year is (last) is wendsday, thursday, friday, saturday or sunday OR if the last day is tuesday and the current year is a leap year
-                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->subWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->subWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->subWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->subWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($firstMonday == $first) { //if the first monday of the year is the same as January 1st of the given year
-                        return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
+                        return $date->isoWeekYear(null, Carbon::MONDAY).str_pad((string) $date->weekOfYear, 2, '0', STR_PAD_LEFT);
                     } else {
                         if ($firstMonday->weekOfYear == 1) { //if the week with the first monday on is the first week, then it matches what we want
-                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad((string) $date->weekOfYear, 2, '0', STR_PAD_LEFT);
                         } else { //if the week with the first monday is the second week then we need to subtract a week because it counted the first week as the week before because it have 4 days in it
-                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad((string) ($date->weekOfYear - 1), 2, '0', STR_PAD_LEFT);
                         }
                     }
                     break;
                 case 6: //uses same algorithm as mode 6 of WEEK function
-                    return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->isoWeek(null, Carbon::SUNDAY), '2', '0', STR_PAD_LEFT);
+                    return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) $date->isoWeek(null, Carbon::SUNDAY), 2, '0', STR_PAD_LEFT);
                     break;
                 case 7: //uses same algorithm as mode 7 of WEEK function
                     $sow = $date->startOfWeek(Carbon::MONDAY);
@@ -452,23 +452,23 @@ trait DateTimeExtended
 
                     if ($sow->year < $date->year) { //if the year of the monday at the start of the given week (sow) is the year before the year of the actual date given
                         if ($first->dayOfWeekIso < 3 || ($first->dayOfWeekIso == 3 && $lastYearLeapYear == 0)) { //if the first day of the year (first) is tuesday or monday OR if the first day is wendsday and the last year is a leap year
-                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->addWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->addWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->addWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->addWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($eow->year > $date->year) { //if the year of the sunday at the end of the given week (eow) is the year after the year of the actual date given
                         if ($last->dayOfWeekIso > 2 || $last->dayOfWeekIso == 2 && ($date->year % 4) != 0) { //if the last day of the year is (last) is wendsday, thursday, friday, saturday or sunday OR if the last day is tuesday and the current year is a leap year
-                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->subWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->subWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->subWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY, $sow->subWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($firstMonday == $first) { //if the first monday of the year is the same as January 1st of the given year
-                        return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
+                        return $date->isoWeekYear(null, Carbon::MONDAY).str_pad((string) $date->weekOfYear, 2, '0', STR_PAD_LEFT);
                     } else {
                         if ($firstMonday->weekOfYear == 1) { //if the week with the first monday on is the first week, then it matches what we want
-                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad((string) $date->weekOfYear, 2, '0', STR_PAD_LEFT);
                         } else { //if the week with the first monday is the second week then we need to subtract a week because it counted the first week as the week before because it have 4 days in it
-                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::MONDAY).str_pad((string) ($date->weekOfYear - 1), 2, '0', STR_PAD_LEFT);
                         }
                     }
                     break;
@@ -479,23 +479,23 @@ trait DateTimeExtended
 
                     if ($sow->year < $date->year) {
                         if ($first->dayOfWeek < 2 || ($first->dayOfWeek == 2 && $lastYearLeapYear == 0)) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->addWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($eow->year > $date->year) {
                         if ($last->dayOfWeek > 1 || $last->dayOfWeek == 1 && ($date->year % 4) != 0) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('52', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('52', 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('53', '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY, $sow->subWeek()->dayOfYear).str_pad('53', 2, '0', STR_PAD_LEFT);
                         }
                     } elseif ($firstSunday == $first) {
-                        return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->isoWeek(null, Carbon::SUNDAY), '2', '0', STR_PAD_LEFT);
+                        return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) $date->isoWeek(null, Carbon::SUNDAY), 2, '0', STR_PAD_LEFT);
                     } else {
                         if ($firstSunday->weekOfYear == 1) {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear - 1, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) ($date->weekOfYear - 1), 2, '0', STR_PAD_LEFT);
                         } else {
-                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad($date->weekOfYear, '2', '0', STR_PAD_LEFT);
+                            return $date->isoWeekYear(null, Carbon::SUNDAY).str_pad((string) $date->weekOfYear, 2, '0', STR_PAD_LEFT);
                         }
                     }
                     break;

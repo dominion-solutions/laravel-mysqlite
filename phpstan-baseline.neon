@@ -21,23 +21,8 @@ parameters:
 			path: src/Mhorninger/MySQLite/MySQLite.php
 
 		-
-			message: "#^Parameter \\#1 \\$ip of function long2ip expects int, string given\\.$#"
-			count: 1
-			path: src/Mhorninger/MySQLite/MySQLite.php
-
-		-
 			message: "#^Parameter \\#1 \\$locale of class NumberFormatter constructor expects string, null given\\.$#"
 			count: 1
-			path: src/Mhorninger/MySQLite/MySQLite.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function str_pad expects string, int given\\.$#"
-			count: 14
-			path: src/Mhorninger/MySQLite/MySQLite.php
-
-		-
-			message: "#^Parameter \\#2 \\$length of function str_pad expects int, string given\\.$#"
-			count: 39
 			path: src/Mhorninger/MySQLite/MySQLite.php
 
 		-
