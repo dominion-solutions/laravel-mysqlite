@@ -75,6 +75,7 @@ jobs:
         uses: gitleaks/gitleaks-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_TOKEN: ${{ secrets.GITLEAKS_TOKEN }}
 
   coverage:
     runs-on: ubuntu-latest
