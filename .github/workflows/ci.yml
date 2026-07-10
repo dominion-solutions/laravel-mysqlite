@@ -35,7 +35,7 @@ jobs:
         run: ./vendor/bin/phpcs
 
       - name: Run Static Analysis
-        run: ./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode
+        run: ./vendor/bin/phpstan analyse --no-progress
 
       - name: Run Tests
         run: ./vendor/bin/phpunit

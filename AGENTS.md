@@ -39,8 +39,8 @@ This package lives inside the Laravel ecosystem. All code must follow Laravel co
 # Check code style
 ./vendor/bin/phpcs
 
-# Static analysis (PHPMD — uses default rules, no config file)
-./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode
+# Static analysis (PHPStan — config in phpstan.neon, baseline in phpstan-baseline.neon)
+./vendor/bin/phpstan analyse
 ```
 
 ## Testing
