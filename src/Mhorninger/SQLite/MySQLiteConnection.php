@@ -86,6 +86,8 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
     {
         return $this
             ->rewriteRules
-            ->reduce(fn ($query, $rule) => preg_replace($rule[0], $rule[1], $query), $query);
+            ->reduce(function ($query, $rule) {
+                return preg_replace($rule[0], $rule[1], $query);
+            }, $query);
     }
 }
