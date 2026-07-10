@@ -10,6 +10,12 @@
 
 Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a database connection that adds select functions from MySQL to SQLite.
 
+# Requirements
+- **PHP**: >= 8.2
+- **Laravel**: 12.x or 13.x (`illuminate/database ^12.0 || ^13.0`)
+
+For users upgrading from v1.x, see [UPGRADING.md](UPGRADING.md) for migration instructions.
+
 # Usage
 ## Adding the Composer Resource
 1. Execute `composer require spam-n-eggs/laravel-mysqlite` or alternatively `composer require --dev spam-n-eggs/laravel-mysqlite`
