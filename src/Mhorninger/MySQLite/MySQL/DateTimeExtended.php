@@ -112,7 +112,7 @@ trait DateTimeExtended
             $days = $dateTimeInterval->d;
             $hours = ($days * 24) + $dateTimeInterval->h;
             $hourFormatter = new \NumberFormatter(\Locale::DEFAULT_LOCALE, \NumberFormatter::PATTERN_DECIMAL, '00');
-            $hours = $hourFormatter->format($hours, \NumberFormatter::PATTERN_DECIMAL);
+            $hours = $hourFormatter->format($hours, \NumberFormatter::TYPE_DOUBLE);
 
             return $dateTimeInterval->format("%r$hours:%I:%S.%F");
         }
