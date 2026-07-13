@@ -22,9 +22,9 @@ trait StringExtended
             $culture = 2 < $length ? $args[2] : 'en_US';
             $pattern = '#,##0';
             if ($decimals > 0) {
-                $base = strlen($pattern . '.');
+                $base = strlen($pattern.'.');
                 $decimals = $base + $decimals;
-                $pattern = str_pad($pattern . '.', $decimals, '0', STR_PAD_RIGHT);
+                $pattern = str_pad($pattern.'.', $decimals, '0', STR_PAD_RIGHT);
             }
             $formatter = new NumberFormatter($culture, NumberFormatter::PATTERN_DECIMAL, $pattern);
 
@@ -35,7 +35,7 @@ trait StringExtended
     }
 
     // phpcs:disable
-    public static function mysql_lpad(string|null $string, int|null $length, string|null $pad): ?string
+    public static function mysql_lpad(?string $string, ?int $length, ?string $pad): ?string
     {
         //phpcs:enable
         if (isset($string, $length, $pad)) {
@@ -50,7 +50,7 @@ trait StringExtended
     }
 
     // phpcs:disable
-    public static function mysql_rpad(string|null $string, int|null $length, string|null $pad): ?string
+    public static function mysql_rpad(?string $string, ?int $length, ?string $pad): ?string
     {
         //phpcs:enable
         if (isset($string, $length, $pad)) {

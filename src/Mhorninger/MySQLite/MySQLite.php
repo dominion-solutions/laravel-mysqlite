@@ -34,7 +34,7 @@ class MySQLite extends \Vectorface\MySQLite\MySQLite
         $ref = new ReflectionClass(self::class);
         $methods = $ref->getMethods(ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_STATIC);
         foreach ($methods as $method) {
-            if (!str_starts_with($method->name, 'mysql_')) {
+            if (! str_starts_with($method->name, 'mysql_')) {
                 continue;
             }
 

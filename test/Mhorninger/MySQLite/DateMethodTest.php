@@ -7,7 +7,6 @@ use Mhorninger\TestCase;
 
 class DateMethodTest extends TestCase
 {
-
     //region CONVERT_TZ
     public function testConvertTzNamed()
     {

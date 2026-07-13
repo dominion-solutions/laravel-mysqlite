@@ -143,7 +143,7 @@ trait DateTimeExtended
     }
 
     //phpcs:disable
-    public static function mysql_time_to_sec(string|null $timeExpression): int|null|string
+    public static function mysql_time_to_sec(?string $timeExpression): int|null|string
     {
         //phpcs:enable
         if ($timeExpression !== null) {
