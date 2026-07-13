@@ -1,26 +1,2 @@
 parameters:
-	ignoreErrors:
-		-
-			message: "#^Method Mhorninger\\\\MySQLite\\\\MySQLite\\:\\:mysql_format\\(\\) should return string but return statement is missing\\.$#"
-			count: 1
-			path: src/Mhorninger/MySQLite/MySQLite.php
-
-		-
-			message: "#^Parameter \\#1 \\$locale of class NumberFormatter constructor expects string, null given\\.$#"
-			count: 1
-			path: src/Mhorninger/MySQLite/MySQLite.php
-
-		-
-			message: "#^Right side of \\|\\| is always true\\.$#"
-			count: 1
-			path: src/Mhorninger/MySQLite/MySQLite.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 19
-			path: src/Mhorninger/MySQLite/MySQLite.php
-
-		-
-			message: "#^Method Mhorninger\\\\SQLite\\\\MySQLiteServiceProvider\\:\\:register\\(\\) should return Illuminate\\\\Database\\\\Connection but return statement is missing\\.$#"
-			count: 1
-			path: src/Mhorninger/SQLite/MySQLiteServiceProvider.php
+	ignoreErrors: []

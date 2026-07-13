@@ -2,20 +2,17 @@
 
 namespace Mhorninger\MySQLite;
 
-class StringMethodTest extends \Mhorninger\TestCase
-{
-    public function setUp(): void
-    {
-        parent::setUp();
-    }
+use Mhorninger\TestCase;
 
+class StringMethodTest extends TestCase
+{
     //region FORMAT tests
     public function testFormatTruncateDecimal()
     {
         $query = 'SELECT FORMAT(12332.123456, 4) as value;';
         $result = $this->conn->selectOne($query);
         $expected = '12,332.1235';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testFormatAppendDecimal()
@@ -23,7 +20,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = 'SELECT FORMAT(12332.1,4) as value;';
         $result = $this->conn->selectOne($query);
         $expected = '12,332.1000';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testFormatWholeOnly()
@@ -31,7 +28,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = 'SELECT FORMAT(12332.2,0) as value;';
         $result = $this->conn->selectOne($query);
         $expected = '12,332';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testFormatWithInternationalization()
@@ -39,7 +36,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = "SELECT FORMAT(12332.2,2,'de_DE') as value;";
         $result = $this->conn->selectOne($query);
         $expected = '12.332,20';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testFormatNull()
@@ -54,7 +51,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = 'SELECT FORMAT((3600 * 1.7 / 281), 1) as value';
         $result = $this->conn->selectOne($query);
         $expected = '21.8';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     //endregion
@@ -65,7 +62,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = "SELECT LPAD('hi',4,'??') as value;";
         $result = $this->conn->selectOne($query);
         $expected = '??hi';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testLpadShorten()
@@ -73,7 +70,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = "SELECT LPAD('hi',1,'??') as value;";
         $result = $this->conn->selectOne($query);
         $expected = 'h';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testLpadZero()
@@ -81,7 +78,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = "SELECT LPAD('0',4,'0') as value;";
         $result = $this->conn->selectOne($query);
         $expected = '0000';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testLpadNull()
@@ -99,7 +96,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = "SELECT RPAD('hi',4,'??') as value;";
         $result = $this->conn->selectOne($query);
         $expected = 'hi??';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testRpadShorten()
@@ -107,7 +104,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = "SELECT RPAD('hi',1,'??') as value;";
         $result = $this->conn->selectOne($query);
         $expected = 'h';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testRpadZero()
@@ -115,7 +112,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = "SELECT RPAD('0',4,'0') as value;";
         $result = $this->conn->selectOne($query);
         $expected = '0000';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testRpadNull()
@@ -130,7 +127,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = "SELECT LEFT('TESTING', 4) as value;";
         $result = $this->conn->selectOne($query);
         $expected = 'TEST';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testRight()
@@ -138,7 +135,7 @@ class StringMethodTest extends \Mhorninger\TestCase
         $query = "SELECT RIGHT('TESTING', 3) as value;";
         $result = $this->conn->selectOne($query);
         $expected = 'ING';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     //endregion

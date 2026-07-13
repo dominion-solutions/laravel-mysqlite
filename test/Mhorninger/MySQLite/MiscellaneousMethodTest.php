@@ -12,7 +12,7 @@ class MiscellaneousMethodTest extends TestCase
         $query = 'SELECT INET_NTOA(167773449) as value;';
         $result = $this->conn->selectOne($query);
         $expected = '10.0.5.9';
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testInetNtoaNull()
@@ -41,6 +41,6 @@ class MiscellaneousMethodTest extends TestCase
         $this->conn->addRewriteRule('/TEST_DATE\(\)/', "date('now')");
 
         $result = $this->selectValue('SELECT TEST_DATE()');
-        $this->assertEquals($date->toDateString(), $result);
+        $this->assertSame($date->toDateString(), $result);
     }
 }

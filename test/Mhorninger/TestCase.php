@@ -8,8 +8,7 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
-    /** @var \Mhorninger\SQLite\MySQLiteConnection|null */
-    protected $conn = null;
+    protected ?MySQLiteConnection $conn = null;
 
     public function setUp(): void
     {
@@ -20,7 +19,7 @@ class TestCase extends BaseTestCase
         $this->conn = new MySQLiteConnection($pdo);
     }
 
-    public function selectValue(string $query)
+    public function selectValue(string $query): mixed
     {
         return collect($this->conn->select($query)[0])->values()->first();
     }
