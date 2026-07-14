@@ -2,6 +2,8 @@
 
 Version 2.0 of `spam-n-eggs/laravel-mysqlite` is a major release that drops support for older PHP and Laravel versions. This guide will help you upgrade from any v1.x release to v2.0.
 
+> **Need help upgrading?** [Dominion Solutions](https://dominion.solutions) can handle it for you. [**StackLift**](https://dominion.solutions/products/stacklift/) is a focused engagement that upgrades your Laravel app, audits dependencies, resolves breaking changes, and delivers a clean, maintainable codebase — starting at $1.5k. [Request an estimate →](https://dominion.solutions/contact)
+
 ## Requirements
 
 | Dependency | v1.x | v2.0 |
