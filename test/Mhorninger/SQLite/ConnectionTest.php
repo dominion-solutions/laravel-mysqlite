@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ConnectionTest extends TestCase
 {
-    private $conn = null;
+    private ?Connection $conn = null;
 
     public function setUp(): void
     {
@@ -26,6 +26,6 @@ class ConnectionTest extends TestCase
     public function testInitializeConnection()
     {
         $result = $this->conn->selectOne('SELECT BIT_OR(1, 2) AS result');
-        $this->assertEquals(3, $result->result);
+        $this->assertSame(3, $result->result);
     }
 }

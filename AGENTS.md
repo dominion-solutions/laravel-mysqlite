@@ -77,8 +77,8 @@ This package lives inside the Laravel ecosystem. All code must follow Laravel co
 
 ### Supported Versions
 
-- **PHP**: >= 7.3.0
-- **illuminate/database**: ^7.0 || ^8.0
+- **PHP**: >= 8.2
+- **illuminate/database**: ^12.0 || ^13.0
 - **vectorface/mysqlite**: ^0.1.4
 
 When expanding version support, ensure tests pass against the new versions and update `composer.json` constraints accordingly.

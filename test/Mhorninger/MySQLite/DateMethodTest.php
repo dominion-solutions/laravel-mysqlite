@@ -2,16 +2,11 @@
 
 namespace Mhorninger\MySQLite;
 
-use DateInterval;
-use DateTime;
+use Carbon\CarbonImmutable;
+use Mhorninger\TestCase;
 
-class DateMethodTest extends \Mhorninger\TestCase
+class DateMethodTest extends TestCase
 {
-    public function setUp(): void
-    {
-        parent::setUp();
-    }
-
     //region CONVERT_TZ
     public function testConvertTzNamed()
     {
@@ -34,7 +29,6 @@ class DateMethodTest extends \Mhorninger\TestCase
         $testTime = '2004-01-01 12:00:00';
         $query = "SELECT CONVERT_TZ('$testTime','SYSTEM','+10:00') as value;";
         $result = $this->conn->selectOne($query);
-        $expected = new DateTime($testTime, new \DateTimeZone('+10:00'));
         $expected = '2004-01-01 22:00:00';
         $this->assertEquals($expected, $result->value);
     }
@@ -137,11 +131,10 @@ class DateMethodTest extends \Mhorninger\TestCase
     //region TimeStamp Tests
     public function testMysqlTimestampDiffSecond()
     {
-        $now = new DateTime();
-        $plusOneSecond = clone $now;
-        $plusOneSecond->add(new DateInterval('PT1S'));
+        $now = CarbonImmutable::now();
+        $plusOneSecond = $now->addSecond();
         $nowTimestamp = $now->getTimestamp();
-        $plusOneSecondTimestamp = $plusOneSecond->getTimeStamp();
+        $plusOneSecondTimestamp = $plusOneSecond->getTimestamp();
         $query = "select TIMESTAMPDIFF(SECOND, $nowTimestamp, $plusOneSecondTimestamp) AS value";
         $result = $this->conn->selectOne($query);
         $this->assertEquals(1, $result->value);
@@ -151,7 +144,7 @@ class DateMethodTest extends \Mhorninger\TestCase
     {
         $query = 'SELECT UTC_TIMESTAMP as value';
         $result = $this->conn->selectOne($query);
-        $now = new DateTime();
+        $now = CarbonImmutable::now();
         $expected = $now->getTimestamp();
         $this->assertEqualsWithDelta($expected, $result->value, 1);
     }

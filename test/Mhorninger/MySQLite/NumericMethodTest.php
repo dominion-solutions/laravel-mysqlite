@@ -6,11 +6,6 @@ use Mhorninger\TestCase;
 
 class NumericMethodTest extends TestCase
 {
-    public function setUp(): void
-    {
-        parent::setUp();
-    }
-
     //region MOD
     public function testModFunctionTens()
     {
@@ -25,7 +20,7 @@ class NumericMethodTest extends TestCase
         $query = 'SELECT 253 % 7 as value;';
         $result = $this->conn->selectOne($query);
         $expected = 1;
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testModFunctionOnes()
@@ -41,7 +36,7 @@ class NumericMethodTest extends TestCase
         $query = 'SELECT MOD(34.5,3) as value;';
         $result = $this->conn->selectOne($query);
         $expected = 1.5;
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testModFunctionNull()
@@ -59,7 +54,7 @@ class NumericMethodTest extends TestCase
         $query = 'SELECT 5 DIV 2 as value;';
         $result = $this->conn->selectOne($query);
         $expected = 2;
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testDivKeywordNegative()
@@ -67,7 +62,7 @@ class NumericMethodTest extends TestCase
         $query = 'SELECT -5 DIV -2 as value;';
         $result = $this->conn->selectOne($query);
         $expected = 2;
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testDivKeywordNegativeDivisor()
@@ -75,7 +70,7 @@ class NumericMethodTest extends TestCase
         $query = 'SELECT 5 DIV -2 as value;';
         $result = $this->conn->selectOne($query);
         $expected = -2;
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testDivKeywordNegativeDividend()
@@ -83,7 +78,7 @@ class NumericMethodTest extends TestCase
         $query = 'SELECT -5 DIV 2 as value;';
         $result = $this->conn->selectOne($query);
         $expected = -2;
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     public function testDivKeywordGoofySpacing()
@@ -91,7 +86,7 @@ class NumericMethodTest extends TestCase
         $query = 'SELECT (5)DIV 2 as value;';
         $result = $this->conn->selectOne($query);
         $expected = 2;
-        $this->assertEquals($expected, $result->value);
+        $this->assertSame($expected, $result->value);
     }
 
     //endregion

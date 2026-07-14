@@ -10,6 +10,12 @@
 
 Laravel MySQLite is meant to be used in conjunction with Laravel.  It is a database connection that adds select functions from MySQL to SQLite.
 
+# Requirements
+- **PHP**: >= 8.2
+- **Laravel**: 12.x or 13.x (`illuminate/database ^12.0 || ^13.0`)
+
+For users upgrading from v1.x, see [UPGRADING.md](UPGRADING.md) for migration instructions.
+
 # Usage
 ## Adding the Composer Resource
 1. Execute `composer require spam-n-eggs/laravel-mysqlite` or alternatively `composer require --dev spam-n-eggs/laravel-mysqlite`
@@ -125,6 +131,16 @@ Want to file a bug, contribute some code, improve documentation, or request a fe
 
 # Questions
 Have a question?  [Log an issue][issue] with the **Question** tag.  We'll get back to you in a timely fashion.
+
+# Support This Project
+
+`laravel-mysqlite` is maintained by [Dominion Solutions](https://dominion.solutions) as open-source work. If this package saves you time, consider hiring us for your next project.
+
+We offer full-stack software engineering services — from feature development and architecture to debugging and performance optimization. Whether you need a long-term development partner or a focused engagement, we'd love to help.
+
+[**StackLift**](https://dominion.solutions/products/stacklift/) is our Laravel upgrade and stabilization engagement. We upgrade your framework, audit dependencies, resolve breaking changes, and hand you a maintainable codebase — starting at $1.5k.
+
+[Request an estimate →](https://dominion.solutions/contact)
 
 # Credits
 This library uses other Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source community.
