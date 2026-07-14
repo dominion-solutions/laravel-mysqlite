@@ -4,7 +4,7 @@ namespace Mhorninger\MySQLite;
 
 class MethodRewriteConstants
 {
-    const METHOD_REPLACEMENTS = [
+    public const METHOD_REPLACEMENTS = [
         ['/(DATE_ADD)(?=.*?, INTERVAL.*?\\))/', 'datetime'],
         ['/INTERVAL (?=.*?\\))/', '\'+'],
         ['/INTERVAL (?=.*?\\))/', '\'+'],

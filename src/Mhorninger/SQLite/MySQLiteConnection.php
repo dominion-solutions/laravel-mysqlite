@@ -2,6 +2,7 @@
 
 namespace Mhorninger\SQLite;
 
+use Illuminate\Support\Collection;
 use Mhorninger\MySQLite\MethodRewriteConstants;
 use Mhorninger\MySQLite\MySQLite;
 use Mhorninger\MySQLite\SubstitutionConstants;
@@ -10,9 +11,9 @@ use ReflectionClass;
 
 class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
 {
-    const ESCAPE_CHARS = ['`', '[', '"'];
-    /** @var \Illuminate\Support\Collection */
-    private $rewriteRules;
+    public const ESCAPE_CHARS = ['`', '[', '"'];
+
+    private Collection $rewriteRules;
 
     /**
      * Create a new database connection instance.
@@ -21,9 +22,8 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
      * @param  string  $database
      * @param  string  $tablePrefix
      * @param  array  $config
-     * @return void
      */
-    public function __construct($pdo, $database = '', $tablePrefix = '', array $config = [])
+    public function __construct(\PDO|\Closure $pdo, string $database = '', string $tablePrefix = '', array $config = [])
     {
         parent::__construct($pdo, $database, $tablePrefix, $config);
 
@@ -38,7 +38,7 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
     {
         // Skip on inserts.
         $insertRegex = '/INSERT INTO.*?;/';
-        if (0 == preg_match($insertRegex, $query)) {
+        if (preg_match($insertRegex, $query) === 0) {
             $query = $this->methodRewrite($query);
             $query = $this->scanQueryForConstants($query);
         }
@@ -46,7 +46,7 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
         return parent::run($query, $bindings, $callback);
     }
 
-    private function scanQueryForConstants($query)
+    private function scanQueryForConstants(string $query): string
     {
         $reflection = new ReflectionClass(SubstitutionConstants::class);
         $constants = $reflection->getConstants();
@@ -75,19 +75,17 @@ class MySQLiteConnection extends \Illuminate\Database\SQLiteConnection
         return $this;
     }
 
-    public function addRewriteRule($regex, $replacement): self
+    public function addRewriteRule(string $regex, string $replacement): self
     {
         $this->rewriteRules->push([$regex, $replacement]);
 
         return $this;
     }
 
-    private function methodRewrite($query)
+    private function methodRewrite(string $query): string
     {
         return $this
             ->rewriteRules
-            ->reduce(function ($query, $rule) {
-                return preg_replace($rule[0], $rule[1], $query);
-            }, $query);
+            ->reduce(fn (string $query, array $rule): string => preg_replace($rule[0], $rule[1], $query), $query);
     }
 }

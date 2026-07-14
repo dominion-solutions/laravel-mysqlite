@@ -11,19 +11,15 @@ class MySQLiteServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
      * Bootstrap the application events.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
     }
 
     /**
      * Register the service provider.
-     *
-     * @return Connection connection
      */
-    public function register()
+    public function register(): void
     {
         Connection::resolverFor('sqlite', function ($connection, $database, $prefix, $config) {
             return new MySQLiteConnection($connection, $database, $prefix, $config);
