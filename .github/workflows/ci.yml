@@ -17,6 +17,7 @@ jobs:
     strategy:
       matrix:
         php-version: ['8.2', '8.3', '8.4']
+        illuminate-version: ['^11.0', '^12.0']
 
     steps:
       - uses: actions/checkout@v7
@@ -28,6 +29,27 @@ jobs:
           extensions: sqlite3
           coverage: xdebug
 
+      - name: Require specific illuminate version
+        run: composer require "illuminate/database:${{ matrix.illuminate-version }}" --no-update
+
+      - name: Install Dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Run Tests
+        run: ./vendor/bin/phpunit
+
+  static-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: sqlite3
+
       - name: Install Dependencies
         run: composer install --no-progress --prefer-dist
 
@@ -36,9 +58,6 @@ jobs:
 
       - name: Run Static Analysis
         run: ./vendor/bin/phpstan analyse --no-progress
-
-      - name: Run Tests
-        run: ./vendor/bin/phpunit
 
   security:
     runs-on: ubuntu-latest
