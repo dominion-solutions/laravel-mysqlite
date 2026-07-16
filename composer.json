@@ -1,7 +1,7 @@
 {
     "name": "spam-n-eggs/laravel-mysqlite",
     "description": "MySQLite is a Laravel connector for SQLite that emulates MySQL functionality.  The currently ported functionalities can be viewed in README.md on the github site.",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "type": "library",
     "require": {
         "vectorface/mysqlite": "^0.2.0",
